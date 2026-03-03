@@ -6,11 +6,12 @@ public class JFramePrincipal extends JFrame {
 
 	public JFramePrincipal() {
 		setTitle("VELKA");
-		setSize(800 ,800);
+		setSize(700 ,500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        setResizable(false);
         setVisible(true);
-        
 	}
+	
 
 }
