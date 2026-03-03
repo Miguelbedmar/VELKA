@@ -1,5 +1,5 @@
 package modelo;
 
-public class Jugador {
+public class Jugador  {
 
 }
