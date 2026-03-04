@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 public class JPanelMenu extends JPanel implements ActionListener {
 
 	 public JPanel fondo;
-	 public JPanel fondoBoton;
+	 //public JPanel fondoBoton;
 	
 
 	private void configurarFondoMenu() {
@@ -16,7 +16,7 @@ public class JPanelMenu extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//
+		// Creación de los botones
 
 	}
 
