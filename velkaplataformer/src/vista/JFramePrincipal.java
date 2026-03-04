@@ -13,7 +13,7 @@ public class JFramePrincipal extends JFrame {
 		setResizable(false); // Eliminamos la posibilidad de que el usuario redimensione la ventana
 		setVisible(true);
 		
-		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAICONO.png"));
+		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAICON.png"));
 		setIconImage(icono.getImage());
 	}
 
