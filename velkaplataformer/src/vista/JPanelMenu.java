@@ -2,13 +2,12 @@ package vista;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class JPanelMenu extends JPanel implements ActionListener {
+public class JPanelMenu extends JPanel {
 	public Dimension dimension;
 	// public JPanel fondoBoton;
 
@@ -20,10 +19,6 @@ public class JPanelMenu extends JPanel implements ActionListener {
 		super.paint(g);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// Creación de los botones
 
-	}
 
 }

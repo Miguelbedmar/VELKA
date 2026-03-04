@@ -1,13 +1,11 @@
 package vista;
 
-import java.awt.BorderLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class JFramePrincipal extends JFrame {
-		JPanelMenu menu=new JPanelMenu();
-		
+	JPanelMenu menu = new JPanelMenu();
+
 	public JFramePrincipal() {
 		setTitle("VELKA"); // Cambiamos el titulo de la pestaña como VELKA
 		setSize(700, 550); // Indicamos que anchura y altura tendra
@@ -15,10 +13,10 @@ public class JFramePrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false); // Eliminamos la posibilidad de que el usuario redimensione la ventana
 		setVisible(true);
-		
+
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
-		add(menu,BorderLayout.CENTER);
+		add(menu);
 	}
 
 }
