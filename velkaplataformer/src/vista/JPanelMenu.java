@@ -15,7 +15,7 @@ public class JPanelMenu extends JPanel {
 		dimension.getSize();
 		ImageIcon fondo = new ImageIcon(getClass().getResource("/recursos/VELKA.jpg"));
 		g.drawImage(fondo.getImage(), 0, 0, dimension.width, dimension.height, null);
-		setOpaque(false);
+		setOpaque(true);
 		super.paint(g);
 	}
 
