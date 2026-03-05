@@ -1,5 +1,7 @@
 package vista;
 
+import java.awt.BorderLayout;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -16,7 +18,7 @@ public class JFramePrincipal extends JFrame {
 
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
-		add(menu);
+		add(menu, BorderLayout.CENTER);
 	}
 
 }

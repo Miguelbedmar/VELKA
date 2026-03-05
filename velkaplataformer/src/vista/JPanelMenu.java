@@ -8,16 +8,14 @@ import javax.swing.JPanel;
 
 public class JPanelMenu extends JPanel {
 	public Dimension dimension;
-	// public JPanel fondoBoton;
 
-	public  void configurarFondoMenu(Graphics g) {
+	@Override
+	public void paint(Graphics g) {
 		dimension.getSize();
-		ImageIcon fondo = new ImageIcon(getClass().getResource("/recursos/FONDO-MENU.png"));
+		ImageIcon fondo = new ImageIcon(getClass().getResource("/recursos/FONDOMENU.png"));
 		g.drawImage(fondo.getImage(), 0, 0, dimension.width, dimension.height, null);
-		setOpaque(true);
+		setOpaque(false);
 		super.paintChildren(g);
 	}
-
-
 
 }
