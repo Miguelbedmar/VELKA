@@ -21,6 +21,7 @@ public class JFramePrincipal extends JFrame {
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
 		
+	
 	}
 
 }

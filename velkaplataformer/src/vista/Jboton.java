@@ -27,7 +27,7 @@ public class Jboton extends JPanel implements ActionListener {
 
 	public void Jboton3configurar() {
 		salir = new JButton("SALIR");
-		salir.setBounds(200, 200, 150, 50);
+		salir.setBounds(100, 200, 150, 50);
 		add(salir);
 		salir.addActionListener(this);
 	}
