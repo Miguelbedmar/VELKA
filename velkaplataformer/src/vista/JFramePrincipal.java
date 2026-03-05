@@ -1,12 +1,10 @@
 package vista;
 
-import java.awt.BorderLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class JFramePrincipal extends JFrame {
-	JPanelMenu menu = new JPanelMenu();
+	JpanelMenu fondoMenu = new JpanelMenu();
 
 	public JFramePrincipal() {
 		setTitle("VELKA"); // Cambiamos el titulo de la pestaña como VELKA
@@ -18,7 +16,7 @@ public class JFramePrincipal extends JFrame {
 
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
-		add(menu, BorderLayout.CENTER);
+		add(fondoMenu);
 	}
 
 }
