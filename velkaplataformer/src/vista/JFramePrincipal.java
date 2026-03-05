@@ -10,14 +10,17 @@ import javax.swing.JFrame;
 public class JFramePrincipal extends JFrame {
 
 	JpanelMenu panel = new JpanelMenu();
-
+	
 	public JFramePrincipal() {
-		this.setTitle("VELKA");
-		this.setSize(new Dimension(700, 700));
-		this.setLocationRelativeTo(null);
-		this.setResizable(false);
+		setTitle("VELKA");
+		setSize(new Dimension(700, 700));
+		setLocationRelativeTo(null);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(panel, BorderLayout.CENTER);
+		add(panel, BorderLayout.CENTER);
+		
+		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
+		setIconImage(icono.getImage());
 	}
 
 }
