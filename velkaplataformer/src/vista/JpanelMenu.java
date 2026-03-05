@@ -51,9 +51,9 @@ public class JpanelMenu extends JPanel implements ActionListener {
 			
 		}
 		if (e.getSource() == controles) {
-			
 		}
 		if (e.getSource() == salir) {
+			
 			System.exit(0);
 		}
 
