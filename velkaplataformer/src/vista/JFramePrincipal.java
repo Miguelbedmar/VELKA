@@ -1,5 +1,7 @@
 package vista;
 
+import java.awt.GridLayout;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
@@ -11,11 +13,13 @@ public class JFramePrincipal extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Permite parar el programa cerrando la ventana
 		setLocationRelativeTo(null);
 		setResizable(false); // Eliminamos la posibilidad de que el usuario redimensione la ventana
+		setVisible(true);
 		
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
-		add(new JpanelMenu());
-		setVisible(true);
+		JpanelMenu menu = new JpanelMenu("/recursos/FONDOMENU.png");
+		menu.setLayout(new GridLayout(3, 2, 25, 25));
+		
 	}
 
 }
