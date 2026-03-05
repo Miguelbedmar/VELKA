@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 public class JFramePrincipal extends JFrame {
 
 	JpanelMenu panel = new JpanelMenu();
-	
+	Jboton boton=new Jboton();
 	public JFramePrincipal() {
 		setTitle("VELKA");
 		setSize(new Dimension(700, 700));
