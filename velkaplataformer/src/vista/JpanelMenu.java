@@ -2,24 +2,22 @@ package vista;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 public class JpanelMenu extends JPanel {
-	private ImageIcon fondo;
-
-	public JpanelMenu(String rutaImagen) {
-		fondo = new ImageIcon(rutaImagen);
-	}
+	private Image fondo;
 
 	@Override
 	public void paint(Graphics g) {
 
-		Dimension di = getSize();
-		g.drawImage(fondo.getImage(), 0, 0, di.width, di.height, null);
+		Dimension di = new Dimension().getSize();
+		fondo = new ImageIcon(getClass().getResource("recursos/FONDOMENU.png")).getImage();
+		g.drawImage(fondo, 0, 0, di.width, di.height, this);
 		setOpaque(false);
-		super.paintChildren(g);
+		super.paint(g);
 
 	}
 
