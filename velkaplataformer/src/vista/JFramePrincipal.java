@@ -1,22 +1,23 @@
 package vista;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
 import javax.swing.ImageIcon;
+
 import javax.swing.JFrame;
 
 public class JFramePrincipal extends JFrame {
-	JpanelMenu fondoMenu = new JpanelMenu();
+
+	JpanelMenu panel = new JpanelMenu();
 
 	public JFramePrincipal() {
-		setTitle("VELKA"); // Cambiamos el titulo de la pestaña como VELKA
-		setSize(700, 550); // Indicamos que anchura y altura tendra
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Permite parar el programa cerrando la ventana
-		setLocationRelativeTo(null);
-		setResizable(false); // Eliminamos la posibilidad de que el usuario redimensione la ventana
-		setVisible(true);
-
-		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
-		setIconImage(icono.getImage());
-		add(fondoMenu);
+		this.setTitle("VELKA");
+		this.setSize(new Dimension(700, 700));
+		this.setLocationRelativeTo(null);
+		this.setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.add(panel, BorderLayout.CENTER);
 	}
 
 }

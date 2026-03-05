@@ -5,7 +5,8 @@ import vista.JFramePrincipal;
 public class Principal {
 
 	public static void main(String[] args) {
-		new JFramePrincipal();
+		JFramePrincipal ventana = new JFramePrincipal();
+		ventana.setVisible(true);
 	}
 
 }
