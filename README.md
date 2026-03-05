@@ -30,5 +30,5 @@ Campos de texto (JTextField o JTextArea) si el juego requiere que el usuario ing
 # Tecnologías y IDE que se utilizara durante el desarrollo
 
 1. Java
-2. Librerias Swings Java
+2. Libreria Swing Java
 3. Eclipse
