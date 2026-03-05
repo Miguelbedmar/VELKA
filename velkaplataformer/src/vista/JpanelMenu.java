@@ -14,7 +14,6 @@ public class JpanelMenu extends JPanel implements ActionListener {
 	public JButton controles;
 	public JButton salir;
 
-
 	@Override
 	public void paint(Graphics g) {
 		Dimension dimension = this.getSize();
@@ -48,12 +47,12 @@ public class JpanelMenu extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == empezar) {
-			
+
 		}
 		if (e.getSource() == controles) {
+
 		}
 		if (e.getSource() == salir) {
-			
 			System.exit(0);
 		}
 

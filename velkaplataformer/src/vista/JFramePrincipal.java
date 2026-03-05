@@ -18,9 +18,9 @@ public class JFramePrincipal extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		add(panel, BorderLayout.CENTER);
-		
 		ImageIcon icono = new ImageIcon(getClass().getResource("/recursos/VELKAAA.png"));
 		setIconImage(icono.getImage());
+		
 	}
 
 }
