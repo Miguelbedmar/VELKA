@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 
 public class JFramePrincipal extends JFrame {
 
-	JPanelMenu panel = new JPanelMenu();
+	JpanelMenu panel = new JpanelMenu();
 	
 	public JFramePrincipal() {
 		setTitle("VELKA");

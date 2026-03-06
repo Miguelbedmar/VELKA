@@ -1,26 +1,31 @@
 package vista;
 
+import java.awt.Cursor;
 import java.awt.Dimension;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class JPanelMenu extends JPanel implements ActionListener {
+public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	JButton empezar;
 	JButton controles;
 	JButton salir;
 
+	public JpanelMenu() {
+		botonesMenu();
+		botoncontrol();
+	}
+
 	@Override
 	public void paint(Graphics g) {
-		Graphics2D gd2 = (Graphics2D) g;
-		gd2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,RenderingHints.VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+
 		Dimension dimension = this.getSize();
 		ImageIcon icon = new ImageIcon(getClass().getResource("/recursos/FONDOMENU.png"));
 		g.drawImage(icon.getImage(), 0, 0, dimension.width, dimension.height, null);
@@ -29,17 +34,68 @@ public class JPanelMenu extends JPanel implements ActionListener {
 	}
 
 	public void botonesMenu() {
-		empezar = new JButton(); // instanciamos boton
-		empezar.setText("EMPEZAR");
-		empezar.setBounds(10, 20, 150, 200); // Indicamos x y altura y anchura del boton
-		empezar.add(empezar);
+		ImageIcon botonempezar = new ImageIcon(getClass().getResource("/recursos/EMPEZAR.png"));
+		Image imagen=botonempezar.getImage().getScaledInstance(500, 400,50);	
+		empezar = new JButton(new ImageIcon(imagen)); // instanciamos boton
+		empezar.setBorderPainted(false);
+		empezar.setContentAreaFilled(false);
+		empezar.setFocusPainted(false);
+		
 
+		add(empezar);
+		empezar.addActionListener(this);
 	}
+	public void botoncontrol() {
+		ImageIcon botoncontrol=new ImageIcon(getClass().getResource("/recursos/CONTROLES.png"));
+		Image imgc=botoncontrol.getImage().getScaledInstance(500, 400, 300);
+		
+	
+	
+	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		if (e.getSource() == empezar) {
 
+		}
+		if (e.getSource() == controles) {
+
+		}
+		if (e.getSource() == salir) {
+			System.exit(0);
+		}
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		setCursor(new Cursor(Cursor.HAND_CURSOR));
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
