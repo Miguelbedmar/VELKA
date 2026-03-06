@@ -40,7 +40,9 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		empezar.setBorderPainted(false);
 		empezar.setContentAreaFilled(false);
 		empezar.setFocusPainted(false);
-		
+		empezar.addMouseListener(this);
+		empezar.setLayout(null);
+		empezar.setBounds(200,150,250,80);
 
 		add(empezar);
 		empezar.addActionListener(this);
@@ -88,13 +90,17 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		setCursor(new Cursor(Cursor.HAND_CURSOR));
+		if(e.getSource()==empezar) {
+			
+		}
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getSource()==empezar) {
+			
+		}
 		
 	}
 
