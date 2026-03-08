@@ -48,7 +48,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		ImageIcon botonempezar = new ImageIcon(getClass().getResource("/recursos/EMPEZAR.png"));
 		Image imagen=botonempezar.getImage().getScaledInstance(350, 200,50);	
 		empezar = new JButton(new ImageIcon(imagen)); // instanciamos boton
-		empezar.setBorderPainted(true);
+		empezar.setBorderPainted(false);
 		empezar.setContentAreaFilled(false);
 		empezar.setFocusPainted(false);
 		empezar.addMouseListener(this);
@@ -60,7 +60,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		ImageIcon botoncontrol=new ImageIcon(getClass().getResource("/recursos/CONTROLES.png"));
 		Image imgc=botoncontrol.getImage().getScaledInstance(350, 200, 50);
 		controles=new JButton(new ImageIcon(imgc));
-		controles.setBorderPainted(true);
+		controles.setBorderPainted(false);
 		controles.setContentAreaFilled(false);
 		controles.setFocusPainted(false);
 		controles.addMouseListener(this);
@@ -73,7 +73,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		ImageIcon botonSalir=new ImageIcon(getClass().getResource("/recursos/SALIR.png"));
 		Image imgc=botonSalir.getImage().getScaledInstance(350, 200, 50);
 		salir=new JButton(new ImageIcon(imgc));
-		salir.setBorderPainted(true);
+		salir.setBorderPainted(false);
 		salir.setContentAreaFilled(false);
 		salir.setFocusPainted(false);
 		salir.addMouseListener(this);
