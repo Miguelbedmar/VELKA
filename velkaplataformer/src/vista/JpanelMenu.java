@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
@@ -19,9 +20,11 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	JButton salir;
 
 	public JpanelMenu() {
+		setLayout(null);
 		botonesMenu();
 		botoncontrol();
 		botonSalir();
+		tituloJuego();
 	}
 
 	@Override
@@ -33,6 +36,13 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		setOpaque(false);
 		super.paintChildren(g);
 	}
+	public void tituloJuego() {
+		ImageIcon tituloMenu=new ImageIcon(getClass().getResource("/recursos/TITULOVELKA.png"));
+		Image imagetitu=tituloMenu.getImage().getScaledInstance(250, 200, 0);
+		JLabel titulo =new JLabel(new ImageIcon(imagetitu));
+		titulo.setBounds(265,2,250,200);
+		add(titulo);
+	}
 
 	public void botonesMenu() {
 		ImageIcon botonempezar = new ImageIcon(getClass().getResource("/recursos/EMPEZAR.png"));
@@ -42,9 +52,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		empezar.setContentAreaFilled(false);
 		empezar.setFocusPainted(false);
 		empezar.addMouseListener(this);
-		empezar.setLayout(null);
-		empezar.setBounds(390,350,0,0);
-
+		empezar.setBounds(200,200,350,100);
 		add(empezar);
 		empezar.addActionListener(this);
 	}
@@ -56,8 +64,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		controles.setContentAreaFilled(false);
 		controles.setFocusPainted(false);
 		controles.addMouseListener(this);
-		controles.setLayout(null);
-		controles.setBounds(150,250,0,0);
+		controles.setBounds(200,350,350,100);
 		add(controles);
 		controles.addActionListener(this);
 	
@@ -70,8 +77,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		salir.setContentAreaFilled(false);
 		salir.setFocusPainted(false);
 		salir.addMouseListener(this);
-		salir.setLayout(null);
-		salir.setBounds(100,150,0,0);
+		salir.setBounds(200,490,350,100);
 		add(salir);
 		salir.addActionListener(this);
 	}
