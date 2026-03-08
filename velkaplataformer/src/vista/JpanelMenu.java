@@ -18,39 +18,52 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	JButton empezar;
 	JButton controles;
 	JButton salir;
-
-	public JpanelMenu() {
-		setLayout(null);
-		botonesMenu();
-		botoncontrol();
+	 // Constructor de clase en donde se indica que el layout será nulo y se llaman alos metodos de la clase
+	public JpanelMenu() { 
+		setLayout(null); 
+		botonesMenu(); 
+		botoncontrol(); 
 		botonSalir();
 		tituloJuego();
 	}
 
 	@Override
-	public void paint(Graphics g) {
+	public void paint(Graphics g) {  // El metodo paint es un metodo de la clase JPanel que se encarga de pintar la imagen sobre el panel 
 
 		Dimension dimension = this.getSize();
-		ImageIcon icon = new ImageIcon(getClass().getResource("/recursos/FONDOMENU.png"));
+		ImageIcon icon = new ImageIcon(getClass().getResource("/recursos/FONDOMENU.png")); // Indicamos la ruta de la imagen ya que si no  saltara error ya que dectara que es nulo
 		g.drawImage(icon.getImage(), 0, 0, dimension.width, dimension.height, null);
-		setOpaque(false);
+		setOpaque(false); 
 		super.paintChildren(g);
 	}
-	public void tituloJuego() {
-		ImageIcon tituloMenu=new ImageIcon(getClass().getResource("/recursos/TITULOVELKA.png"));
+	public void tituloJuego() { 
+		/* El metodo titulo juego es recoger la ruta de imagen del titulo de velka
+		 *parsear dicha imagen a tipo image para escalar la instancia  pegar la imagen a un 
+		 *JLabel para luego indiar  X Y ancho y alto y por último añadimos el titulo */
+		ImageIcon tituloMenu=new ImageIcon(getClass().getResource("/recursos/TITULOVELKA.png"));			
 		Image imagetitu=tituloMenu.getImage().getScaledInstance(250, 200, 0);
 		JLabel titulo =new JLabel(new ImageIcon(imagetitu));
-		titulo.setBounds(265,2,250,200);
+		titulo.setBounds(255,2,250,200);
 		add(titulo);
 	}
+	/* Los metodos botonesMenu,botoncontrol y botonSalir se encargan de 
+	 * 1. Recoger la ruta de la imagen correspondiente a cada botón
+	 * 2. parsear esa imagen de imagenIcon a tipo Image para así
+	 * jugar con su escala es decir su ancho y su alto
+	 * 3.Instanciar un boton que tendra la imagen 
+	 * 4.deshabilitar los bordes del botón por estética
+	 * 5.deshabilitar  que automáticamente se rellene el area del botón para
+	 * dar ese efecto
+	 * */
 
 	public void botonesMenu() {
+		
 		ImageIcon botonempezar = new ImageIcon(getClass().getResource("/recursos/EMPEZAR.png"));
 		Image imagen=botonempezar.getImage().getScaledInstance(350, 200,50);	
 		empezar = new JButton(new ImageIcon(imagen)); // instanciamos boton
 		empezar.setBorderPainted(false);
 		empezar.setContentAreaFilled(false);
-		empezar.setFocusPainted(false);
+		empezar.setFocusPainted(true);
 		empezar.addMouseListener(this);
 		empezar.setBounds(200,200,350,100);
 		add(empezar);
