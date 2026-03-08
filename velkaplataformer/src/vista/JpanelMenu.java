@@ -21,6 +21,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	public JpanelMenu() {
 		botonesMenu();
 		botoncontrol();
+		botonSalir();
 	}
 
 	@Override
@@ -35,24 +36,44 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 
 	public void botonesMenu() {
 		ImageIcon botonempezar = new ImageIcon(getClass().getResource("/recursos/EMPEZAR.png"));
-		Image imagen=botonempezar.getImage().getScaledInstance(500, 400,50);	
+		Image imagen=botonempezar.getImage().getScaledInstance(350, 200,50);	
 		empezar = new JButton(new ImageIcon(imagen)); // instanciamos boton
-		empezar.setBorderPainted(false);
+		empezar.setBorderPainted(true);
 		empezar.setContentAreaFilled(false);
 		empezar.setFocusPainted(false);
 		empezar.addMouseListener(this);
 		empezar.setLayout(null);
-		empezar.setBounds(200,150,250,80);
+		empezar.setBounds(390,350,0,0);
 
 		add(empezar);
 		empezar.addActionListener(this);
 	}
 	public void botoncontrol() {
 		ImageIcon botoncontrol=new ImageIcon(getClass().getResource("/recursos/CONTROLES.png"));
-		Image imgc=botoncontrol.getImage().getScaledInstance(500, 400, 300);
-		
+		Image imgc=botoncontrol.getImage().getScaledInstance(350, 200, 50);
+		controles=new JButton(new ImageIcon(imgc));
+		controles.setBorderPainted(true);
+		controles.setContentAreaFilled(false);
+		controles.setFocusPainted(false);
+		controles.addMouseListener(this);
+		controles.setLayout(null);
+		controles.setBounds(150,250,0,0);
+		add(controles);
+		controles.addActionListener(this);
 	
-	
+	}
+	public void botonSalir() {
+		ImageIcon botonSalir=new ImageIcon(getClass().getResource("/recursos/SALIR.png"));
+		Image imgc=botonSalir.getImage().getScaledInstance(350, 200, 50);
+		salir=new JButton(new ImageIcon(imgc));
+		salir.setBorderPainted(true);
+		salir.setContentAreaFilled(false);
+		salir.setFocusPainted(false);
+		salir.addMouseListener(this);
+		salir.setLayout(null);
+		salir.setBounds(100,150,0,0);
+		add(salir);
+		salir.addActionListener(this);
 	}
 	
 	
@@ -67,6 +88,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		}
 		if (e.getSource() == salir) {
 			System.exit(0);
+			
 		}
 	}
 
@@ -93,12 +115,21 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		if(e.getSource()==empezar) {
 			
 		}
+		if(e.getSource()==controles) {
+			
+		}if(e.getSource()==salir) {
+			
+		}
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
 		if(e.getSource()==empezar) {
+			
+		}if(e.getSource()==controles) {
+			
+		}if(e.getSource()==salir) {
 			
 		}
 		
