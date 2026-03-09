@@ -100,10 +100,11 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == empezar) {
-
-		}
+			JPanell1Juego juego=new JPanell1Juego();
+		
+		}	
 		if (e.getSource() == controles) {
-
+			
 		}
 		if (e.getSource() == salir) {
 			System.exit(0);
