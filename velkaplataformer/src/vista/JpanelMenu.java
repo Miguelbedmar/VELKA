@@ -63,7 +63,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		empezar = new JButton(new ImageIcon(imagen)); // instanciamos boton
 		empezar.setBorderPainted(false);
 		empezar.setContentAreaFilled(false);
-		empezar.setFocusPainted(true);
+		empezar.setFocusPainted(false);
 		empezar.addMouseListener(this);
 		empezar.setBounds(200,200,350,100);
 		add(empezar);
