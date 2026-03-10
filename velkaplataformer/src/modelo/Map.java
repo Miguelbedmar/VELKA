@@ -11,7 +11,7 @@ public class Map {
 	 * contendran cada parte del mapa el mapa tendrá colisiones y elementos en donde
 	 * el jugador pordrá escalar y mantenerse sobre la misma.
 	 * La matriz tendra número del 0 al 3 teniendo cada un significado
-	 * 0: sin colisiones ni plataformas
+	 * 0: sin colisiones
 	 * 1: colisión y plataforma
 	 * 2: colisión y enemigo que restara vida al jugador
 	 * 3: Colisión y coleccionable que el jugador pordrá recolectar.
@@ -24,20 +24,23 @@ public class Map {
 			
 	//Matriz 1
 		{
-	{0,3,0,1,2,2,1,1,0,0,0,0,0,0,0},	
-	{0,0,0,0,0,0,1,1,0,0,0,0,0,0,0},
-	{2,0,0,0,0,0,0,0,0,0,1,1,0,0,0},
-	{0,0,0,0,0,0,0,0,0,0,1,1,0,0,0},	
-	{1,1,1,1,1,0,1,1,0,0,0,0,0,0,0},	
-	{1,1,1,1,1,2,2,2,2,2,2,2,2,2,2},
+	{3,1,2,1,0,0,0,0,0,0,0,0,0,0,0},	
+	{0,0,0,1,0,1,1,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,1,1,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,1,1,0,0,0,0},	
+	{0,1,1,1,0,0,1,1,0,0,0,0,0,0,0},	
+	{2,1,1,1,2,2,2,2,2,2,2,2,2,2,2},
 	
 		},
 	// Matriz 2.
 	{	
 		{0,0,0,0,0,0,1,1,0,0,0,0,0,0,0},
-		{},
-
-},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	},	
 
 			};
 	
