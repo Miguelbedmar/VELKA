@@ -1,8 +1,8 @@
 package modelo;
 
 public class Map {
-
-	private int[][][] mapa;
+	// Declaración de atributos
+	private int[][][] mapa; // matriz tridimensional 
 	private int[][][] room;
 	private int titleSi = 32;
 
@@ -15,6 +15,7 @@ public class Map {
 	 * 1: colisión y plataforma
 	 * 2: colisión y enemigo que restara vida al jugador
 	 * 3: Colisión y coleccionable que el jugador pordrá recolectar.
+	 * 4. Siguiente matriz.
 	 */
 
 	// Matrices.
@@ -22,24 +23,24 @@ public class Map {
 		
 	room=new int [][][]{
 			
-	//Matriz 1
+	// Primera matriz principio de juego
 		{
 	{3,1,2,1,0,0,0,0,0,0,0,0,0,0,0},	
 	{0,0,0,1,0,1,1,0,0,0,0,0,0,0,0},
-	{0,0,0,0,0,0,1,0,0,1,1,0,0,0,0},
+	{0,0,0,0,0,0,1,0,0,1,1,0,0,1,4},
 	{0,0,0,0,0,0,0,0,0,1,1,0,0,0,0},	
 	{0,1,1,1,0,0,1,1,0,0,0,0,0,0,0},	
 	{2,1,1,1,2,2,2,2,2,2,2,2,2,2,2},
 	
 		},
-	// Matriz 2.
+	// Segunda matriz.
 	{	
-		{0,0,0,0,0,0,1,1,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{1,1,0,0,0,1,1,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,1,1,0,0,0,0,0,0,0,0},
 		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,1,2,2,2,2,2,2,2,2,2,2,2,2,2},
 	},	
 
 			};
@@ -49,7 +50,7 @@ public class Map {
 
 	}
 	private int roomActual=0;
-
+	//GETTERS Y SETTERS.
 	public int[][][] getMapa() {
 		return mapa;
 	}
@@ -64,5 +65,21 @@ public class Map {
 
 	public void setTitleSi(int titleSi) {
 		this.titleSi = titleSi;
+	}
+
+	public int[][][] getRoom() {
+		return room;
+	}
+
+	public void setRoom(int[][][] room) {
+		this.room = room;
+	}
+
+	public int getRoomActual() {
+		return roomActual;
+	}
+
+	public void setRoomActual(int roomActual) {
+		this.roomActual = roomActual;
 	}
 }
