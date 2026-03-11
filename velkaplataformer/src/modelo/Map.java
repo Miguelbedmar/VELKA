@@ -2,8 +2,8 @@ package modelo;
 
 public class Map {
 	// Declaración de atributos
-	private int[][][] mapa; // matriz tridimensional 
-	private int[][][] room;
+	
+	private int[][][] room; // matriz tridimensional 
 	private int titleSi = 32;
 
 	/*
@@ -79,7 +79,8 @@ public class Map {
 		
 	},
 	
-	{
+	{	// Sexta matriz 
+	
 								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 								{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 								{3,0,0,0,1,1,0,0,0,0,0,0,0,1,4},
@@ -89,6 +90,16 @@ public class Map {
 								{2,2,2,2,2,1,2,2,1,2,2,2,2,2,2}
 	},
 	
+	{ // Séptima matriz
+		
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+		{0,0,0,0,1,1,1,0,0,1,1,1,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0},
+		{1,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0},
+		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,5},
+		{0,0,0,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2}
+		
+	},
 	
 	
 			};
@@ -99,13 +110,8 @@ public class Map {
 	}
 	private int roomActual=0;
 	//GETTERS Y SETTERS.
-	public int[][][] getMapa() {
-		return mapa;
-	}
 
-	public void setMapa(int[][][] mapa) {
-		this.mapa = mapa;
-	}
+	
 
 	public int getTitleSi() {
 		return titleSi;
