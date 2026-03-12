@@ -102,7 +102,14 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == empezar) {
+			try {
+				juego = new JPanell1Juego();
+				setVisible(true);
 			
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		
 		}	
 		if (e.getSource() == controles) {
@@ -135,13 +142,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if(e.getSource()==empezar) {
-			try {
-				juego = new JPanell1Juego();
-
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			
 		}
 		if(e.getSource()==controles) {
 			

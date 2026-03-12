@@ -12,7 +12,7 @@ import modelo.Tile;
 
 public class JPanell1Juego extends JPanel {
 	// Atributos
-	private Map mapaModelo;
+	private Map  mapaModelo;
 	private Tile[] tile;
 
 	// Constructor
@@ -20,6 +20,7 @@ public class JPanell1Juego extends JPanel {
 		mapaModelo = new Map();
 		tile = new Tile[6];
 		asignarTiles();
+		
 	}
 
 	// Metodos
@@ -27,8 +28,9 @@ public class JPanell1Juego extends JPanel {
 	/*
 	 * EL metodo asignarTiles Este metodo se encarga de asignar las colisiones que
 	 * en función del número será una colison o no tendrá colisión Empezamos con
-	 * declarar un objeto
-	 * 
+	 * declarar un objeto de tipo ImageIO que se guardara en un objeto de tipo 
+	 * BufferredImagen posteriormente se le asigna   imagen y decir si tendra colision o no
+	 * la colision asignada unicamente se indica con false o true
 	 */
 	public void asignarTiles() throws IOException {
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/BUFERREDDEIMAGENES.png"));
@@ -43,6 +45,11 @@ public class JPanell1Juego extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		
+		for(int i =0;i<mapaModelo.getRoomActual();i++) {
+			
+		}
+		
 	}
 
 }
