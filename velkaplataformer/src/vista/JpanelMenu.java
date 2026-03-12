@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +19,7 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	JButton empezar;
 	JButton controles;
 	JButton salir;
+	JPanell1Juego juego;
 	 // Constructor de clase en donde se indica que el layout será nulo y se llaman alos metodos de la clase
 	public JpanelMenu() { 
 		setLayout(null); 
@@ -133,7 +135,13 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		if(e.getSource()==empezar) {
-			
+			try {
+				juego = new JPanell1Juego();
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		if(e.getSource()==controles) {
 			
