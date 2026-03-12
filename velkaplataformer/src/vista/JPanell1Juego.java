@@ -38,10 +38,13 @@ public class JPanell1Juego extends JPanel {
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMA.png"));
 		tile[1] = new Tile(plataforma, true);
 		BufferedImage pincho = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PINCHOS.png"));
-		tile[2] = new Tile(plataforma, true);
-		tile[3] = new Tile(plataforma, true);
+		tile[2] = new Tile(pincho, true);
+		BufferedImage Coleccionable = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/ESTRELLAS.png"));
+		tile[3] = new Tile(Coleccionable, true);
+		BufferedImage Colecciona = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/ESTRELLAS.png"));
 		tile[4] = new Tile(plataforma, true);
-		tile[5] = new Tile(plataforma, true);
+		BufferedImage PORTAL = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PORTAL.png"));
+		tile[5] = new Tile(PORTAL, true);
 	}
 
 	@Override
