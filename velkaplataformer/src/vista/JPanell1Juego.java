@@ -35,9 +35,9 @@ public class JPanell1Juego extends JPanel {
 	public void asignarTiles() throws IOException {
 		
 		tile[0] = new Tile(null, false);
-		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/.png"));
+		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMA.png"));
 		tile[1] = new Tile(plataforma, true);
-		BufferedImage pincho = ImageIO.read(getClass().getResource("/recursos/BUFERREDDEIMAGENES.png"));
+		BufferedImage pincho = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PINCHOS.png"));
 		tile[2] = new Tile(plataforma, true);
 		tile[3] = new Tile(plataforma, true);
 		tile[4] = new Tile(plataforma, true);
