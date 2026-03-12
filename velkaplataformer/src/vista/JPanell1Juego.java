@@ -24,10 +24,12 @@ public class JPanell1Juego {
 	
 	//Metodos
 	
-	
-	public void asignarTils() throws IOException  {
+	/* EL metodo asignarTiles
+	 * Este metodo se encarga de asignar las colisiones que en función del número será una colison o no tendrá colisión*/
+	public void asignarTiles() throws IOException  {
 		BufferedImage plataforma= ImageIO.read(getClass().getResource("/recursos/BUFERREDDEIMAGENES.png"));
-		
-		
+	
+		tile[0]=new Tile(plataforma, false) 
+				;
 	}
 }
