@@ -6,11 +6,11 @@ public abstract class Personaje {
 	
 	
 	
-	public	void run(){	
- }
+	public abstract	 void run();
  
-	public  void  gravedad() {
+ 
+	public abstract  void  gravedad(); 
 		
-	}
+	
  }
  

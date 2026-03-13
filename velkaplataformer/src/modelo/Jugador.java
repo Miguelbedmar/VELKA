@@ -13,6 +13,12 @@ public class Jugador extends Personaje implements Runnable  {
 		// TODO Auto-generated method stub	
 	}
 
+	@Override
+	public void gravedad() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 	
