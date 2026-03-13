@@ -10,10 +10,22 @@ public class Map {
 	 * Está clase se encarga de modelar el mapa por medio de matrices de 32*32 que
 	 * contendran cada parte del mapa el mapa tendrá colisiones y elementos en donde
 	 * el jugador pordrá escalar y mantenerse sobre la misma. La matriz tendra
-	 * número del 0 al 5 teniendo cada un significado 0: sin colisiones 1: colisióny
-	 * plataforma 2: colisión y enemigo que restara vida al jugador 3: Colisión y
-	 * coleccionable que el jugador pordrá recolectar. 4. Siguiente o anterior
-	 * matriz. 5. Fin del juego. 6. Pilar sin colision 7.puerta sin colision
+	 * número del 0 al 5 teniendo cada un significado 
+	 * 0: sin colisiones 
+	 * 1: colisióny
+	 * plataforma 
+	 * 2: colisión y enemigo que restara vida al jugador 
+	 * 3: Colisión y
+	 * coleccionable que el jugador pordrá recolectar.
+	 *  4. Siguiente o anterior
+	 * matriz. 
+	 * 5. Fin del juego. 
+	 * 6. Pilar sin colision 
+	 * 7.Plataforma 2*2 Mediana con colision
+	 * 8.Plataforma única con colision
+	 * 9.Bloque con colision
+	 * 10.Torre con colision
+	 * 11.pincho unico con colision
 	 */
 
 	// Matrices.
@@ -38,8 +50,8 @@ public class Map {
 						{ 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 1, 1, 1, 0, 0, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 9, 9, 0, 0, 0, 0, 1, 0, 0, 7, 7, 0, 0, 0, 3, 0, 0 },
-						{ 9 ,9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 6, 2, 8, 0 },
-						{ 9, 9, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 6, 1, 2, 2 }, },
+						{ 9 ,9, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 9, 11, 8, 0 },
+						{ 9, 9, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 9, 1, 2, 2 }, },
 
 				// Tercera Matriz
 				{
@@ -68,7 +80,8 @@ public class Map {
 						{ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 4 },
 						{ 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 },
 						{ 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0 },
-						{ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2 }
+						{ 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, 
+						{ 0, 0, 0, 0, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 2 }
 
 				},
 

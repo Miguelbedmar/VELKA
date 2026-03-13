@@ -1,10 +1,11 @@
 package vista;
-
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import modelo.Map;
@@ -33,7 +34,6 @@ public class JPanell1Juego extends JPanel {
 	 * o no la colision asignada unicamente se indica con false o true
 	 */
 	public void asignarTiles() throws IOException {
-
 		tile[0] = new Tile(null, false);
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMA.png"));
 		tile[1] = new Tile(plataforma, true);

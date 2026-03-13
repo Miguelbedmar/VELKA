@@ -10,8 +10,10 @@ public class Jugador extends Personaje implements Runnable  {
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub	
 	}
 
+	
+	
+	
 }
