@@ -1,9 +1,12 @@
 package modelo;
 
 public class Jugador extends Personaje implements Runnable  {
+	
+	// ATRIBUTOS DEL JUGADOR
+	private int vida;
 
 	
-	
+
 	
 	
 	
