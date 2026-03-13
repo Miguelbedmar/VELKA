@@ -49,9 +49,9 @@ public class JPanell1Juego extends JPanel {
 		BufferedImage portal1 = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PORTAL.png"));
 
 		tile[4] = new Tile(portal1, false);
-		BufferedImage portal = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPAPORTAL.png"));
+		BufferedImage portal = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PORTAL.png"));
 		tile[5] = new Tile(portal, true);
-		BufferedImage pilar = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPAPILAR.png"));
+		BufferedImage pilar = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PILAR.png"));
 		tile[6] = new Tile(pilar, false);
 		BufferedImage plataformamediana = ImageIO
 				.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAMEDIANA.png"));
