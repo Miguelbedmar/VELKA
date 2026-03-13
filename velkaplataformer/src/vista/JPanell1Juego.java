@@ -37,6 +37,7 @@ public class JPanell1Juego extends JPanel {
 	 * de 12 tiles que van del 0 al 11, se comienza a contar desde el 0
 	 */
 	public void asignarTiles() throws IOException {
+		System.out.println(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMA.png"));
 		tile[0] = new Tile(null, false);
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMA.png"));
 		tile[1] = new Tile(plataforma, true);
@@ -83,10 +84,10 @@ public class JPanell1Juego extends JPanel {
 				}
 				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
 						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
-				super.paintChildren(g);
 
 			}
 		}
+		super.paintChildren(g);
 
 	}
 

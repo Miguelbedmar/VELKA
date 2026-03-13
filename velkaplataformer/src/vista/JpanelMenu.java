@@ -12,8 +12,11 @@ import java.io.IOException;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 
 public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 	JButton empezar;
@@ -104,7 +107,10 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		if (e.getSource() == empezar) {
 			try {
 				juego = new JPanell1Juego();
-			
+				JFrame jframe=(JFrame)SwingUtilities.getWindowAncestor(this);
+				jframe.setContentPane(juego);
+				jframe.revalidate();
+				jframe.repaint();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
