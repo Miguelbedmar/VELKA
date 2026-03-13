@@ -104,7 +104,6 @@ public class JpanelMenu extends JPanel implements ActionListener,MouseListener {
 		if (e.getSource() == empezar) {
 			try {
 				juego = new JPanell1Juego();
-				setVisible(true);
 			
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block

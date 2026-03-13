@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -32,7 +33,8 @@ public class JPanell1Juego extends JPanel {
 	 * en función del número será una colison o no tendrá colisión Empezamos con
 	 * declarar un objeto de tipo ImageIO que se guardara en un objeto de tipo
 	 * BufferredImagen posteriormente se le asigna imagen y decir si tendra colision
-	 * o no la colision asignada unicamente se indica con false o true
+	 * o no la colision asignada unicamente se indica con false o true hay un total
+	 * de 12 tiles que van del 0 al 11, se comienza a contar desde el 0
 	 */
 	public void asignarTiles() throws IOException {
 		tile[0] = new Tile(null, false);
@@ -55,7 +57,7 @@ public class JPanell1Juego extends JPanel {
 				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMAMEDIANA.png"));
 		tile[7] = new Tile(plataformamediana, true);
 		BufferedImage plataformapequeña = ImageIO
-				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMAPEQUEÑA.png"));
+				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMAPEQUENA.png"));
 		tile[8] = new Tile(plataformapequeña, true);
 		BufferedImage bloque = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/BLOQUE.png"));
 		tile[9] = new Tile(bloque, true);
@@ -67,9 +69,23 @@ public class JPanell1Juego extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
+		Dimension dimension = this.getSize();
+		ImageIcon fondo = new ImageIcon(getClass().getResource("/recursos/recursosSPRITESMAPA/FONDOJUEGO.png"));
+		g.drawImage(fondo.getImage(), 0, 0, dimension.width, dimension.height, null);
 
-		for (int i = 0; i < mapaModelo.getRoomActual(); i++) {
+		int[][] zona = mapaModelo.zonActual();
 
+		for (int fila = 0; fila < zona.length; fila++) {
+			for (int col = 0; col < zona[fila].length; col++) {
+				int num = zona[fila][col];
+				if (num == 0) {
+					continue; // Saltamos la iterracion en el caso de que numero 0
+				}
+				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
+						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
+				super.paintChildren(g);
+
+			}
 		}
 
 	}
