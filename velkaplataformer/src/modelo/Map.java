@@ -15,7 +15,7 @@ public class Map {
 	 * 1: colisióny
 	 * plataforma 
 	 * 2: colisión y enemigo que restara vida al jugador 
-	 * 3: Colisión y
+	 * 3:  sin Colisión y
 	 * coleccionable que el jugador pordrá recolectar.
 	 *  4. Siguiente o anterior
 	 * matriz. 
