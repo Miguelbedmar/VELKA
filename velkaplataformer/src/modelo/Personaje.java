@@ -9,7 +9,29 @@ public abstract class Personaje {
 	public abstract	 void run();
  
  
-	public abstract  void  gravedad(); 
+	public abstract  void  gravedad();
+
+
+	public int getX() {
+		return x;
+	}
+
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
+
+	public void setY(int y) {
+		this.y = y;
+	} 
+	
+	
 		
 	
  }
