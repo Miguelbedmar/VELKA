@@ -1,4 +1,5 @@
 package vista;
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -19,7 +20,7 @@ public class JPanell1Juego extends JPanel {
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
-		tile = new Tile[9];
+		tile = new Tile[12];
 		asignarTiles();
 
 	}
@@ -39,17 +40,29 @@ public class JPanell1Juego extends JPanel {
 		tile[1] = new Tile(plataforma, true);
 		BufferedImage pincho = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PINCHOS.png"));
 		tile[2] = new Tile(pincho, true);
-		BufferedImage Coleccionable = ImageIO
+		BufferedImage coleccionable = ImageIO
 				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/ESTRELLAS.png"));
 
-		tile[3] = new Tile(Coleccionable, true);
+		tile[3] = new Tile(coleccionable, false);
 		BufferedImage portal1 = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PORTAL.png"));
 
 		tile[4] = new Tile(portal1, false);
 		BufferedImage portal = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PORTAL.png"));
 		tile[5] = new Tile(portal, true);
-		BufferedImage PILAR = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PILAR.png"));
-		tile[6] = new Tile(PILAR, false);
+		BufferedImage pilar = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PILAR.png"));
+		tile[6] = new Tile(pilar, false);
+		BufferedImage plataformamediana = ImageIO
+				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMAMEDIANA.png"));
+		tile[7] = new Tile(plataformamediana, true);
+		BufferedImage plataformapequeña = ImageIO
+				.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PLATAFORMAPEQUEÑA.png"));
+		tile[8] = new Tile(plataformapequeña, true);
+		BufferedImage bloque = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/BLOQUE.png"));
+		tile[9] = new Tile(bloque, true);
+		BufferedImage torre = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/TORRE.png"));
+		tile[10] = new Tile(torre, true);
+		BufferedImage pinchounico = ImageIO.read(getClass().getResource("/recursos/recursosSPRITESMAPA/PINCHO.png"));
+		tile[11] = new Tile(pinchounico, true);
 	}
 
 	@Override
