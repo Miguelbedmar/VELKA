@@ -110,19 +110,32 @@ public class JPanell1Juego extends JPanel {
 	}
 
 	public boolean hayColision(int x, int y) {
+		  
 		int tilesi = mapaModelo.getTitleSi();
 		int fila = y / tilesi;
 		int col = x / tilesi;
-
+		System.out.println("Comprobando fila: " + fila + " col: " + col);
 		int[][] room = mapaModelo.zonActual();
 
 		if (fila < room.length && col < room.length) {
 			Tile ti = tile[room[fila][col]];
 			return ti.isColision() && !ti.isDanioJugador();
 		}
+	
+		return false;
+	}
+
+	public boolean danio(int x, int y) {
+		int fila = y / mapaModelo.getTitleSi();
+
+		int col = x / mapaModelo.getTitleSi();
+		int[][] room = mapaModelo.zonActual();
+
+		if (fila < room.length && col < room.length) {
+			return tile[room[fila][col]].isDanioJugador();
+		}
 
 		return false;
 	}
-	
 
 }
