@@ -31,7 +31,11 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
-		asignarsprites();
+		x = 100;
+		y = 100;
+		posturaActual = "IDLE";
+		contadorFra = 0;
+		spriteActual = 0;
 
 		// INICIALIZACION DE LOS SPRITES
 		idle = new BufferedImage[4];
@@ -40,6 +44,7 @@ public class Jugador extends Personaje implements Runnable {
 		escala = new BufferedImage[3];
 		danio = new BufferedImage[4];
 		porta = new BufferedImage[3];
+		asignarsprites();
 	}
 
 	private void asignarsprites() throws IOException {
@@ -86,6 +91,110 @@ public class Jugador extends Personaje implements Runnable {
 	public void gravedad() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+	public int getVelocidad() {
+		return velocidad;
+	}
+
+	public void setVelocidad(int velocidad) {
+		this.velocidad = velocidad;
+	}
+
+	public boolean isSuelo() {
+		return suelo;
+	}
+
+	public void setSuelo(boolean suelo) {
+		this.suelo = suelo;
+	}
+
+	public BufferedImage[] getIdle() {
+		return idle;
+	}
+
+	public void setIdle(BufferedImage[] idle) {
+		this.idle = idle;
+	}
+
+	public BufferedImage[] getCorrer() {
+		return correr;
+	}
+
+	public void setCorrer(BufferedImage[] correr) {
+		this.correr = correr;
+	}
+
+	public BufferedImage[] getSalto() {
+		return salto;
+	}
+
+	public void setSalto(BufferedImage[] salto) {
+		this.salto = salto;
+	}
+
+	public BufferedImage[] getEscala() {
+		return escala;
+	}
+
+	public void setEscala(BufferedImage[] escala) {
+		this.escala = escala;
+	}
+
+	public BufferedImage[] getDanio() {
+		return danio;
+	}
+
+	public void setDanio(BufferedImage[] danio) {
+		this.danio = danio;
+	}
+
+	public BufferedImage[] getPorta() {
+		return porta;
+	}
+
+	public void setPorta(BufferedImage[] porta) {
+		this.porta = porta;
+	}
+
+	public int getSpriteActual() {
+		return spriteActual;
+	}
+
+	public void setSpriteActual(int spriteActual) {
+		this.spriteActual = spriteActual;
+	}
+
+	public int getContadorFra() {
+		return contadorFra;
+	}
+
+	public void setContadorFra(int contadorFra) {
+		this.contadorFra = contadorFra;
+	}
+
+	public String getPosturaActual() {
+		return posturaActual;
+	}
+
+	public void setPosturaActual(String posturaActual) {
+		this.posturaActual = posturaActual;
+	}
+
+	public Thread getHiloJugador() {
+		return hiloJugador;
+	}
+
+	public void setHiloJugador(Thread hiloJugador) {
+		this.hiloJugador = hiloJugador;
 	}
 
 }

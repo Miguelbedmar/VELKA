@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import modelo.Jugador;
 import modelo.Map;
 import modelo.Tile;
 
@@ -17,11 +18,13 @@ public class JPanell1Juego extends JPanel {
 	// Atributos
 	private Map mapaModelo;
 	private Tile[] tile;
+	private Jugador jugador;
 
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
 		tile = new Tile[12];
+		jugador = new Jugador();
 		asignarTiles();
 
 	}
@@ -37,7 +40,7 @@ public class JPanell1Juego extends JPanel {
 	 * de 12 tiles que van del 0 al 11, se comienza a contar desde el 0
 	 */
 	public void asignarTiles() throws IOException {
-		// ASIGNAR TILE [0]  AIRE
+		// ASIGNAR TILE [0] AIRE
 		tile[0] = new Tile(null, false);
 		// ASIGNAR TILE[1] PLATAFORMA
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMA.png"));
@@ -58,10 +61,12 @@ public class JPanell1Juego extends JPanel {
 		BufferedImage pilar = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PILAR.png"));
 		tile[6] = new Tile(pilar, false);
 		// ASIGNA TILE [7] PLATAFORMA MEDIANA
-		BufferedImage plataformamediana = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAMEDIANA.png"));
+		BufferedImage plataformamediana = ImageIO
+				.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAMEDIANA.png"));
 		tile[7] = new Tile(plataformamediana, true);
 		// ASIGNA TILE [8] PLATAFORMA PEQUEÑA
-		BufferedImage plataformapequena = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAPEQUENA.png"));
+		BufferedImage plataformapequena = ImageIO
+				.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAPEQUENA.png"));
 		tile[8] = new Tile(plataformapequena, true);
 		// ASIGNA TILE [9] BLOQUE
 		BufferedImage bloque = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/BLOQUE.png"));
@@ -89,8 +94,14 @@ public class JPanell1Juego extends JPanel {
 					continue; // Saltamos la iterracion en el caso de que numero 0
 				}
 				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
-						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
+						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), 
+						jugador.getSpriteActual(),
+						jugador.getX(),
+						jugador.getY(),
+						64,64,null);
 
+			
+				
 			}
 		}
 		super.paintChildren(g);
