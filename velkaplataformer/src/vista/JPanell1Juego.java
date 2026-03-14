@@ -24,9 +24,11 @@ public class JPanell1Juego extends JPanel {
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
 		tile = new Tile[12];
-		jugador = new Jugador();
+		jugador = new Jugador(this);
 		asignarTiles();
 
+		Thread hilo = new Thread(jugador);
+		hilo.start();
 	}
 
 	// Metodos

@@ -5,6 +5,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import vista.JPanell1Juego;
+
 public class Jugador extends Personaje implements Runnable {
 
 	// ATRIBUTOS DEL JUGADOR
@@ -24,10 +26,16 @@ public class Jugador extends Personaje implements Runnable {
 	private int spriteActual;
 	private int contadorFra;
 	private String posturaActual;
-	private Thread hiloJugador;
+
+	private int velocidaCaida;
+	private final int gravedad = 1;
+
+	// ATRIBUTO ADICIONAL
+	private JPanell1Juego juego;
 
 	// CONSTRUCTOR JUGADOR.
-	public Jugador() throws IOException {
+	public Jugador(JPanell1Juego juego) throws IOException {
+		this.juego = juego;
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
@@ -49,36 +57,36 @@ public class Jugador extends Personaje implements Runnable {
 
 	private void asignarsprites() throws IOException {
 		// ASIGNAR SPRITES DE INACTIVIDAD
-		idle[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE0.png"));
-		idle[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE1.png"));
-		idle[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE2.png"));
-		idle[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE3.png"));
+		idle[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE0.png"));
+		idle[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE1.png"));
+		idle[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE2.png"));
+		idle[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE3.png"));
 
 		// ASIGNAR SPRITES DE CORRER
-		correr[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER0.png"));
-		correr[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER1.png"));
-		correr[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER2.png"));
-		correr[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER3.png"));
-		correr[4] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER4.png"));
-		correr[5] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER5.png"));
+		correr[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER0.png"));
+		correr[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER1.png"));
+		correr[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER2.png"));
+		correr[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER3.png"));
+		correr[4] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER4.png"));
+		correr[5] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/CORRER/CORRER5.png"));
 
 		// ASIGNAR SPRITES DE SALTO
-		salto[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO0.png"));
-		salto[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO1.png"));
-		salto[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO2.png"));
+		salto[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/SALTO/SALTO0.png"));
+		salto[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/SALTO/SALTO1.png"));
+		salto[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/SALTO/SALTO2.png"));
 		// ASIGNA SPRITES DE ESCALA
-		escala[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA0.png"));
-		escala[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA1.png"));
-		escala[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA2.png"));
+		escala[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/ESCALA/ESCALA0.png"));
+		escala[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/ESCALA/ESCALA1.png"));
+		escala[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/ESCALA/ESCALA2.png"));
 		// ASIGNACION SPRITES DE DANIO.
-		danio[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO0.png"));
-		danio[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO1.png"));
-		danio[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO2.png"));
-		danio[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO3.png"));
+		danio[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/DANIO/DANIO0.png"));
+		danio[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/DANIO/DANIO1.png"));
+		danio[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/DANIO/DANIO2.png"));
+		danio[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/DANIO/DANIO3.png"));
 		// ASIGNACION SPRITES DE PORTAL
-		porta[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA0.png"));
-		porta[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA1.png"));
-		porta[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA2.png"));
+		porta[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/PORTA/PORTA0.png"));
+		porta[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/PORTA/PORTA1.png"));
+		porta[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/PORTA/PORTA2.png"));
 
 	}
 
@@ -102,13 +110,27 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	@Override
-	public void run() {
-		// TODO Auto-generated method stub
+	public void run() { // Ejecucion de hilos llamando al metodo gravedad
+		while (true) {
+			gravedad();
+			try {
+				Thread.sleep(16);
+				juego.repaint();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	@Override
-	public void gravedad() {
-		// TODO Auto-generated method stub
+	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
+								// teniendo en cuenta la teoria de la gravedad
+		if (!suelo) {
+			velocidaCaida += gravedad;
+			y += velocidaCaida;
+		} else {
+			velocidaCaida = 0;
+		}
 
 	}
 
@@ -206,14 +228,6 @@ public class Jugador extends Personaje implements Runnable {
 
 	public void setPosturaActual(String posturaActual) {
 		this.posturaActual = posturaActual;
-	}
-
-	public Thread getHiloJugador() {
-		return hiloJugador;
-	}
-
-	public void setHiloJugador(Thread hiloJugador) {
-		this.hiloJugador = hiloJugador;
 	}
 
 }
