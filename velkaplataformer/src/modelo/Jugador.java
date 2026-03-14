@@ -27,18 +27,19 @@ public class Jugador extends Personaje implements Runnable {
 	private Thread hiloJugador;
 
 	// CONSTRUCTOR JUGADOR.
-	public Jugador() {
+	public Jugador() throws IOException {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
+		asignarsprites();
 
 		// INICIALIZACION DE LOS SPRITES
 		idle = new BufferedImage[4];
 		correr = new BufferedImage[6];
 		salto = new BufferedImage[3];
-		escala=new BufferedImage[3];
-		danio=new BufferedImage[4];
-		porta=new BufferedImage[3];
+		escala = new BufferedImage[3];
+		danio = new BufferedImage[4];
+		porta = new BufferedImage[3];
 	}
 
 	private void asignarsprites() throws IOException {
@@ -57,13 +58,15 @@ public class Jugador extends Personaje implements Runnable {
 		correr[5] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER5.png"));
 
 		// ASIGNAR SPRITES DE SALTO
-		salto[0]=ImageIO.read(getClass().getResource(""));
-		salto[1]=ImageIO.read(getClass().getResource(""));
-		salto[2]=ImageIO.read(getClass().getResource(""));
+		salto[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO0.png"));
+		salto[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO1.png"));
+		salto[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/SALTO/SALTO2.png"));
 		// ASIGNA SPRITES DE ESCALA
-		
-	
-	
+		escala[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA0.png"));
+		escala[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA1.png"));
+		escala[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA2.png"));
+		// ASIGNACION SPRITES DE DANIO.
+
 	}
 
 	@Override
