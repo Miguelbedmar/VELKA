@@ -40,7 +40,7 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
-		x = 0;
+		x = 254;
 		y = 200;
 		posturaActual = "IDLE";
 		contadorFra = 0;
@@ -57,6 +57,8 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	private void asignarsprites() throws IOException {
+		
+		System.out.println("fila: " + (y+64)/64 + " col: " + x/64);
 		// ASIGNAR SPRITES DE INACTIVIDAD
 		idle[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE0.png"));
 		idle[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE1.png"));

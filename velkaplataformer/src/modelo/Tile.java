@@ -17,36 +17,40 @@ public class Tile {
 
 	private Image imagen;
 	private boolean colision;
-	
-	//CONSTRUCTOR
-	public Tile(Image imagen,boolean colision) {
-		this.imagen=imagen;
-		this.colision=colision;
-		
+	private boolean danioJugador;
+
+	// CONSTRUCTOR
+	public Tile(Image imagen, boolean colision, boolean danioJugador) {
+		this.imagen = imagen;
+		this.colision = colision;
+		this.danioJugador = danioJugador;
 	}
 
-
-	
 	// GETTERS Y SETTERS.
 	public Image getImagen() {
 		return imagen;
 	}
 
-
 	public void setImagen(Image imagen) {
 		this.imagen = imagen;
 	}
-
 
 	public boolean isColision() {
 		return colision;
 	}
 
-
 	public void setColision(boolean colision) {
 		this.colision = colision;
 	}
 
+	public boolean isDanioJugador() {
+		return danioJugador;
+	}
+
+	public void setDanioJugador(boolean danioJugador) {
+		this.danioJugador = danioJugador;
+	}
 	
 	
+
 }
