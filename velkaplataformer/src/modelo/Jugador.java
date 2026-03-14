@@ -66,6 +66,14 @@ public class Jugador extends Personaje implements Runnable {
 		escala[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA1.png"));
 		escala[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/ESCALA/ESCALA2.png"));
 		// ASIGNACION SPRITES DE DANIO.
+		danio[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO0.png"));
+		danio[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO1.png"));
+		danio[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO2.png"));
+		danio[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/DANIO/DANIO3.png"));
+		// ASIGNACION SPRITES DE PORTAL
+		porta[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA0.png"));
+		porta[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA1.png"));
+		porta[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/PORTA/PORTA2.png"));
 
 	}
 
