@@ -9,7 +9,7 @@ import vista.JPanell1Juego;
 
 public class Jugador extends Personaje implements Runnable {
 	private final int altura = 20;
-	private final int ancho =25;
+	private final int ancho = 25;
 	// ATRIBUTOS DEL JUGADOR
 	private int vida;
 	private int velocidad;
@@ -57,8 +57,9 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	private void asignarsprites() throws IOException {
-		
-		System.out.println("fila: " + (y+64)/64 + " col: " + x/64);
+
+		System.out.println("fila: " + (y + 64) / 64 + " col: " + x / 64);
+		System.out.println(vida);
 		// ASIGNAR SPRITES DE INACTIVIDAD
 		idle[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE0.png"));
 		idle[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR2/IDLE/IDLE1.png"));

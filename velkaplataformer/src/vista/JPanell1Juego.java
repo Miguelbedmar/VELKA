@@ -46,42 +46,42 @@ public class JPanell1Juego extends JPanel {
 	 */
 	public void asignarTiles() throws IOException {
 		// ASIGNAR TILE [0] AIRE
-		tile[0] = new Tile(null, false,false);
+		tile[0] = new Tile(null, false, false);
 		// ASIGNAR TILE[1] PLATAFORMA
 		BufferedImage plataforma = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMA.png"));
-		tile[1] = new Tile(plataforma, true,false);
+		tile[1] = new Tile(plataforma, true, false);
 		// ASIGNAR TILE[2] PINCHOS
 		BufferedImage pincho = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PINCHOS.png"));
-		tile[2] = new Tile(pincho, true,true);
+		tile[2] = new Tile(pincho, true, true);
 		// ASIGNAR TILE [3] COLECCIONABLE
 		BufferedImage coleccionable = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/ESTRELLAS.png"));
-		tile[3] = new Tile(coleccionable, false,false);
+		tile[3] = new Tile(coleccionable, false, false);
 		// ASIGNA TILE[4] PORTAL SIGUIENTE MATRIZ
 		BufferedImage portal1 = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PORTAL.png"));
-		tile[4] = new Tile(portal1, false,false);
+		tile[4] = new Tile(portal1, false, false);
 		// ASIGNA TILE[5] PORTAL FIN DEL JUEGO
 		BufferedImage portal = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PORTAL.png"));
-		tile[5] = new Tile(portal, true,false);
+		tile[5] = new Tile(portal, true, false);
 		// ASIGNA TILE[6] PILAR SIN COLISION
 		BufferedImage pilar = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PILAR.png"));
-		tile[6] = new Tile(pilar, false,false);
+		tile[6] = new Tile(pilar, false, false);
 		// ASIGNA TILE [7] PLATAFORMA MEDIANA
 		BufferedImage plataformamediana = ImageIO
 				.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAMEDIANA.png"));
-		tile[7] = new Tile(plataformamediana, true,false);
+		tile[7] = new Tile(plataformamediana, true, false);
 		// ASIGNA TILE [8] PLATAFORMA PEQUEÑA
 		BufferedImage plataformapequena = ImageIO
 				.read(getClass().getResource("/recursos/SPRITEMAPA/PLATAFORMAPEQUENA.png"));
-		tile[8] = new Tile(plataformapequena, true,false);
+		tile[8] = new Tile(plataformapequena, true, false);
 		// ASIGNA TILE [9] BLOQUE
 		BufferedImage bloque = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/BLOQUE.png"));
-		tile[9] = new Tile(bloque, true,false);
+		tile[9] = new Tile(bloque, true, false);
 		// ASIGNA TILE [10] TORRE
 		BufferedImage torre = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/TORRE.png"));
 		tile[10] = new Tile(torre, true, false);
 		// ASIGNA TILE [11] PINCHO ÚNICO
 		BufferedImage pinchounico = ImageIO.read(getClass().getResource("/recursos/SPRITEMAPA/PINCHO.png"));
-		tile[11] = new Tile(pinchounico, true,true);
+		tile[11] = new Tile(pinchounico, true, true);
 	}
 
 	@Override
@@ -117,10 +117,12 @@ public class JPanell1Juego extends JPanel {
 		int[][] room = mapaModelo.zonActual();
 
 		if (fila < room.length && col < room.length) {
-			return tile[room[fila][col]].isColision();
+			Tile ti = tile[room[fila][col]];
+			return ti.isColision() && !ti.isDanioJugador();
 		}
 
 		return false;
 	}
+	
 
 }
