@@ -43,24 +43,27 @@ public class Jugador extends Personaje implements Runnable {
 
 	private void asignarsprites() throws IOException {
 		// ASIGNAR SPRITES DE INACTIVIDAD
-		idle[0] = ImageIO.read(getClass().getResource(""));
-		idle[1] = ImageIO.read(getClass().getResource(""));
-		idle[2] = ImageIO.read(getClass().getResource(""));
-		idle[3] = ImageIO.read(getClass().getResource(""));
+		idle[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE0.png"));
+		idle[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE1.png"));
+		idle[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE2.png"));
+		idle[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/IDLE/IDLE3.png"));
 
 		// ASIGNAR SPRITES DE CORRER
-		correr[0] = ImageIO.read(getClass().getResource(""));
-		correr[1] = ImageIO.read(getClass().getResource(""));
-		correr[2] = ImageIO.read(getClass().getResource(""));
-		correr[3] = ImageIO.read(getClass().getResource(""));
-		correr[4] = ImageIO.read(getClass().getResource(""));
-		correr[5] = ImageIO.read(getClass().getResource(""));
+		correr[0] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER0.png"));
+		correr[1] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER1.png"));
+		correr[2] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER2.png"));
+		correr[3] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER3.png"));
+		correr[4] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER4.png"));
+		correr[5] = ImageIO.read(getClass().getResource("/recursos/SPRITESJUGADOR/CORRER/CORRER5.png"));
 
 		// ASIGNAR SPRITES DE SALTO
 		salto[0]=ImageIO.read(getClass().getResource(""));
 		salto[1]=ImageIO.read(getClass().getResource(""));
 		salto[2]=ImageIO.read(getClass().getResource(""));
 		// ASIGNA SPRITES DE ESCALA
+		
+	
+	
 	}
 
 	@Override
