@@ -94,14 +94,10 @@ public class JPanell1Juego extends JPanel {
 					continue; // Saltamos la iterracion en el caso de que numero 0
 				}
 				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
-						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), 
-						jugador.getSpriteActual(),
-						jugador.getX(),
-						jugador.getY(),
-						64,64,null);
+						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
 
-			
-				
+				g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
+
 			}
 		}
 		super.paintChildren(g);

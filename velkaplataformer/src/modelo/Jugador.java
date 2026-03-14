@@ -82,6 +82,25 @@ public class Jugador extends Personaje implements Runnable {
 
 	}
 
+	public BufferedImage getspriteActual() {
+		// SI LA POSTURA EQUIVALE A JUGADOR INACTIVO
+		if (posturaActual.equals("IDLE"))
+			return idle[spriteActual];
+		// SI LA POSTURA EQUIVALE A JUGADOR CORRIENDO
+		if (posturaActual.equals("CORRER"))
+			return correr[spriteActual];
+		// SI LA POSTURA EQUIVALE A JUGADOR SALTANDO
+		if (posturaActual.equals("SALTO"))
+			return salto[spriteActual];
+		if (posturaActual.equals("ESCALA"))
+			return escala[spriteActual];
+		if (posturaActual.equals("DANIO"))
+			return danio[spriteActual];
+		if (posturaActual.equals("PORTAL"))
+			return porta[spriteActual];
+		return idle[0];
+	}
+
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
