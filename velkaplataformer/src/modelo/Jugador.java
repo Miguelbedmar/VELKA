@@ -8,7 +8,8 @@ import javax.imageio.ImageIO;
 import vista.JPanell1Juego;
 
 public class Jugador extends Personaje implements Runnable {
-
+	private final int altura = 20;
+	private final int ancho =25;
 	// ATRIBUTOS DEL JUGADOR
 	private int vida;
 	private int velocidad;
@@ -39,8 +40,8 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
-		x = 100;
-		y = 100;
+		x = 0;
+		y = 200;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -104,9 +105,19 @@ public class Jugador extends Personaje implements Runnable {
 			return escala[spriteActual];
 		if (posturaActual.equals("DANIO"))
 			return danio[spriteActual];
-		if (posturaActual.equals("PORTAL"))
+		if (posturaActual.equals("PORTA"))
 			return porta[spriteActual];
 		return idle[0];
+	}
+
+	/*
+	 * Este metodo se encarga de detectar la colison del jugador para eso se
+	 * determina que un jugador tiene varias colisones en las diferentes
+	 * dirrecciones arriba para techo abajo suelo izquierda y derecha para paredes.
+	 */
+	public boolean comprobarColision() {
+
+		return juego.hayColision(x, y + altura) || juego.hayColision(x + ancho - 1, y + altura);
 	}
 
 	@Override
@@ -125,10 +136,12 @@ public class Jugador extends Personaje implements Runnable {
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
 								// teniendo en cuenta la teoria de la gravedad
-		if (!suelo) {
+		if (comprobarColision()) {
+
 			velocidaCaida += gravedad;
 			y += velocidaCaida;
 		} else {
+			suelo = true;
 			velocidaCaida = 0;
 		}
 

@@ -15,6 +15,9 @@ import modelo.Map;
 import modelo.Tile;
 
 public class JPanell1Juego extends JPanel {
+
+	private final int altura = 64;
+	private final int ancho = 48;
 	// Atributos
 	private Map mapaModelo;
 	private Tile[] tile;
@@ -104,6 +107,20 @@ public class JPanell1Juego extends JPanel {
 		}
 		super.paintChildren(g);
 
+	}
+
+	public boolean hayColision(int x, int y) {
+		int tilesi = mapaModelo.getTitleSi();
+		int fila = y / tilesi;
+		int col = x / tilesi;
+
+		int[][] room = mapaModelo.zonActual();
+
+		if (fila < room.length && col < room.length) {
+			return tile[room[fila][col]].isColision();
+		}
+
+		return false;
 	}
 
 }
