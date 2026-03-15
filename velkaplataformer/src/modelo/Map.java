@@ -4,7 +4,7 @@ public class Map {
 	// Declaración de atributos
 
 	private int[][][] room; // matriz tridimensional
-	private int titleSi =80;
+	private int titleSi =96;
 
 	/*
 	 * Está clase se encarga de modelar el mapa por medio de matrices de 32*32 que
@@ -37,8 +37,8 @@ public class Map {
 			
 				{ 		{ 3, 8, 11, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 0, 0, 0, 0, 0, 0, 10, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-						{ 6, 0, 6, 0, 0, 0, 10, 0, 0, 10, 10, 0, 1, 1, 1, 4 },
-						{ 6, 0, 6, 0, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0 },
+						{ 0, 6, 0, 6, 0, 0, 10, 0, 0, 10, 10, 0, 1, 1, 1, 4 },
+						{ 0, 6, 0, 6, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0 },
 						{ 2, 9, 9, 9, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 9, 9, 9, 9, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 },
 

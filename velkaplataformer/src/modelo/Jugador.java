@@ -129,7 +129,6 @@ public class Jugador extends Personaje implements Runnable {
 			actualizarsprite();
 			try {
 				Thread.sleep(16);
-				recogerColeccionable();
 				juego.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
