@@ -4,7 +4,7 @@ public class Map {
 	// Declaración de atributos
 
 	private int[][][] room; // matriz tridimensional
-	private int titleSi =96;
+	private int titleSi =112;
 
 	/*
 	 * Está clase se encarga de modelar el mapa por medio de matrices de 32*32 que
@@ -34,8 +34,9 @@ public class Map {
 		room = new int[][][] {
 
 				// Primera matriz principio de nivel
-			
-				{ 		{ 3, 8, 11, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+					
+				{ 		{0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+						{ 0, 8, 11, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 0, 0, 0, 0, 0, 0, 10, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 						{ 0, 6, 0, 6, 0, 0, 10, 0, 0, 10, 10, 0, 1, 1, 1, 4 },
 						{ 0, 6, 0, 6, 0, 0, 0, 0, 0, 10, 10, 0, 0, 0, 0, 0 },
