@@ -26,13 +26,13 @@ public class JPanell1Juego extends JPanel {
 	private Tile[] tile;
 	private Jugador jugador;
 	private TecladoControlador teclado;
-	private ArrayList<Coleccionable>coleccionable;
+	private ArrayList<Coleccionable> coleccionable;
+
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
 		tile = new Tile[12];
 		jugador = new Jugador(this);
-		new ArrayList<Coleccionable>();
 		asignarTiles();
 
 		Thread hilo = new Thread(jugador);
@@ -144,6 +144,20 @@ public class JPanell1Juego extends JPanel {
 		}
 
 		return false;
+	}
+
+	public void cargarColeccionable() {
+		int[][] room = mapaModelo.zonActual();
+		for (int fila = 0; fila < room.length; fila++) {
+			for (int col = 0; col < room[fila].length; col++) {
+				if (room[fila][col] == 3) {
+					int x = col * mapaModelo.getTitleSi();
+					int y = fila * mapaModelo.getTitleSi();
+					coleccionable.add(new Coleccionable(x, y));
+
+				}
+			}
+		}
 	}
 
 	public boolean danio(int x, int y) {
