@@ -41,7 +41,7 @@ public class Jugador extends Personaje implements Runnable {
 		velocidad = 4;
 		suelo = false;
 		x = 0;
-		y = 250;
+		y = 240;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -137,14 +137,15 @@ public class Jugador extends Personaje implements Runnable {
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
 								// teniendo en cuenta la teoria de la gravedad
-		if (comprobarColision()) {
+		if (!comprobarColision()) {
 
 			velocidaCaida += gravedad;
-			y += velocidaCaida;
+			 y += velocidaCaida;
+			 suelo=false;
 		} else {
 			suelo = true;
 			velocidaCaida = 0;
-		}
+		}System.out.println(vida);
 
 	}
 

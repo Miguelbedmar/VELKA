@@ -114,7 +114,8 @@ public class JPanell1Juego extends JPanel {
 		int tilesi = mapaModelo.getTitleSi();
 		int fila = y / tilesi;
 		int col = x / tilesi;
-		System.out.println("Comprobando fila: " + fila + " col: " + col);
+		System.out.println("fila: " + fila + " col: " + col);
+
 		int[][] room = mapaModelo.zonActual();
 
 		if (fila < room.length && col < room.length) {
