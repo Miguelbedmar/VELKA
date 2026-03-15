@@ -34,7 +34,7 @@ public class JPanell1Juego extends JPanel {
 
 		Thread hilo = new Thread(jugador);
 		hilo.start();
-		teclado=new TecladoControlador(jugador);
+		teclado = new TecladoControlador(jugador);
 		addKeyListener(teclado);
 		setFocusable(true);
 		requestFocus();
@@ -116,7 +116,7 @@ public class JPanell1Juego extends JPanel {
 	}
 
 	public boolean hayColision(int x, int y) {
-		  
+
 		int tilesi = mapaModelo.getTitleSi();
 		int fila = y / tilesi;
 		int col = x / tilesi;
@@ -127,7 +127,7 @@ public class JPanell1Juego extends JPanel {
 			Tile ti = tile[room[fila][col]];
 			return ti.isColision() && !ti.isDanioJugador();
 		}
-	
+
 		return false;
 	}
 
@@ -142,8 +142,20 @@ public class JPanell1Juego extends JPanel {
 		}
 
 		return false;
-		
-		
+
+	}
+
+	public boolean tileSolido(int x, int y) {
+		int fila = y / mapaModelo.getTitleSi();
+
+		int col = x / mapaModelo.getTitleSi();
+		int[][] room = mapaModelo.zonActual();
+
+		if (fila < room.length && col < room.length) {
+			return tile[room[fila][col]].isColision();
+		}
+
+		return false;
 	}
 
 	public Map getMapaModelo() {

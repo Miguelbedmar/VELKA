@@ -143,8 +143,10 @@ public class Jugador extends Personaje implements Runnable {
 			y += velocidaCaida;
 			suelo = false;
 		} else {
-			suelo = true;
-			velocidaCaida = 0;
+			if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
+				suelo = true;
+				velocidaCaida = 0;
+			}
 		}
 
 	}
@@ -160,7 +162,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void salto() {
-		System.out.println("Suelo"+suelo);
+		System.out.println("Suelo" + suelo);
 		if (suelo) {
 			velocidaCaida = -28;
 			suelo = false;
