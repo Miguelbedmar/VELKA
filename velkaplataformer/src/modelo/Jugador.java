@@ -14,6 +14,7 @@ public class Jugador extends Personaje implements Runnable {
 	private int vida;
 	private int velocidad;
 	private boolean suelo;
+	private boolean movimiento;
 
 	// ATRIBUTOS ANIMACIONES.
 
@@ -38,10 +39,10 @@ public class Jugador extends Personaje implements Runnable {
 	public Jugador(JPanell1Juego juego) throws IOException {
 		this.juego = juego;
 		vida = 3;
-		velocidad = 4;
+		velocidad = 5;
 		suelo = false;
-		x = 0;
-		y = 250;
+		x = 250;
+		y = 456;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -125,6 +126,7 @@ public class Jugador extends Personaje implements Runnable {
 	public void run() { // Ejecucion de hilos llamando al metodo gravedad
 		while (true) {
 			gravedad();
+			actualizarsprite();
 			try {
 				Thread.sleep(16);
 				juego.repaint();
@@ -159,6 +161,7 @@ public class Jugador extends Personaje implements Runnable {
 	// METODOS DE MOVIMIENTO DEL JUGADOR
 
 	public void moverDerecha() {
+		movimiento = true;
 		if (!juego.colisonde(x, y)) {
 			x += velocidad;
 		}
@@ -177,6 +180,34 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void escalada() {
+
+	}
+
+	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
+	private void actualizarsprite() {
+
+		if (!suelo)
+			posturaActual = "SALTO";
+		else if (movimiento)
+			posturaActual = "CORRER";
+		else
+			posturaActual = "IDLE";
+
+		contadorFra++;
+
+		if (contadorFra >= 8) {
+			contadorFra = 0;
+			spriteActual++;
+			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
+
+				spriteActual = 0;
+			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
+
+				spriteActual = 0;
+			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
+
+				spriteActual = 0;
+		}
 
 	}
 
@@ -275,5 +306,14 @@ public class Jugador extends Personaje implements Runnable {
 	public void setPosturaActual(String posturaActual) {
 		this.posturaActual = posturaActual;
 	}
+
+	public boolean isMovimiento() {
+		return movimiento;
+	}
+
+	public void setMovimiento(boolean movimiento) {
+		this.movimiento = movimiento;
+	}
+	
 
 }

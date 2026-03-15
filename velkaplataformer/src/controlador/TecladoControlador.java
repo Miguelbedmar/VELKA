@@ -13,7 +13,6 @@ public class TecladoControlador implements KeyListener {
 	public TecladoControlador(Jugador jugador) {
 		this.jugador = jugador;
 	}
-	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -41,8 +40,7 @@ public class TecladoControlador implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-
+		jugador.setMovimiento(false);
 	}
 
 }
