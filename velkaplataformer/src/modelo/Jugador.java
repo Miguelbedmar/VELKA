@@ -41,8 +41,8 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
-		x = 250;
-		y = 456;
+		x = 215;
+		y = 350;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -138,9 +138,9 @@ public class Jugador extends Personaje implements Runnable {
 
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
-
+		System.out.println(vida);
 		velocidaCaida += gravedad;
-		int nuy = y += velocidaCaida; // teniendo en cuenta la teoria de la gravedad
+		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
 
 			// PERMITIR QUE EL
@@ -148,6 +148,14 @@ public class Jugador extends Personaje implements Runnable {
 				suelo = true;
 				velocidaCaida = 0;
 				y = (nuy + altura) / juego.getTilesi() * juego.getTilesi() - altura;
+			}
+			if (juego.danio(x, y + altura) || juego.danio(x + ancho - 1, y + altura)) {
+				recibirdanio();
+				if(vida<=0) {
+					vida=3;
+					x = 215;
+					y = 350;
+				}
 			}
 
 		} else {
@@ -196,7 +204,6 @@ public class Jugador extends Personaje implements Runnable {
 			contadorFra = 0;
 		}
 
-
 		contadorFra++;
 
 		if (contadorFra >= 8) {
@@ -213,6 +220,13 @@ public class Jugador extends Personaje implements Runnable {
 				spriteActual = 0;
 		}
 
+	}
+
+	public void recibirdanio() {
+		vida--;
+		x = 215;
+		y = 350;
+		velocidaCaida = 0;
 	}
 
 	public int getVida() {
