@@ -195,20 +195,26 @@ public class Jugador extends Personaje implements Runnable {
 			spriteActual=0;    
 			contadorFra=0;   
 		}
+		
+		if(posturaActual.equals(postuAnterior)) {
+			spriteActual=0;
+		
+			
+		}
 		contadorFra++;
-
+	
 		if (contadorFra >= 8) {
 			contadorFra = 0;
 			spriteActual++;
 			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
-				contadorFra = 0;
+				
 			spriteActual = 0;
 			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
-				contadorFra = 0;
+				
 
 			spriteActual = 0;
 			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
-				contadorFra = 0;
+				
 
 			spriteActual = 0;
 		}
