@@ -1,10 +1,12 @@
 package modelo;
 
+import java.awt.RenderingHints.Key;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import controlador.TecladoControlador;
 import vista.JPanell1Juego;
 
 public class Jugador extends Personaje implements Runnable {
@@ -34,10 +36,12 @@ public class Jugador extends Personaje implements Runnable {
 
 	// ATRIBUTO ADICIONAL
 	private JPanell1Juego juego;
+	private TecladoControlador teclado;
 
 	// CONSTRUCTOR JUGADOR.
-	public Jugador(JPanell1Juego juego) throws IOException {
+	public Jugador(JPanell1Juego juego, TecladoControlador teclado) throws IOException {
 		this.juego = juego;
+		this.teclado = teclado;
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
@@ -55,6 +59,7 @@ public class Jugador extends Personaje implements Runnable {
 		danio = new BufferedImage[4];
 		porta = new BufferedImage[4];
 		asignarsprites();
+		
 	}
 
 	private void asignarsprites() throws IOException {
@@ -129,6 +134,10 @@ public class Jugador extends Personaje implements Runnable {
 			actualizarsprite();
 			try {
 				Thread.sleep(16);
+				if (teclado.isDerechapress())
+					moverDerecha();
+				if (teclado.isIzquierdapress())
+					moverIzquierda();
 				juego.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -341,5 +350,14 @@ public class Jugador extends Personaje implements Runnable {
 	public void setMovimiento(boolean movimiento) {
 		this.movimiento = movimiento;
 	}
+
+	public TecladoControlador getTeclado() {
+		return teclado;
+	}
+
+	public void setTeclado(TecladoControlador teclado) {
+		this.teclado = teclado;
+	}
+	
 
 }

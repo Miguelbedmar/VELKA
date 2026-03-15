@@ -25,22 +25,23 @@ public class JPanell1Juego extends JPanel {
 	private Map mapaModelo;
 	private Tile[] tile;
 	private Jugador jugador;
-	private TecladoControlador teclado;
+	private TecladoControlador key;
 	private ArrayList<Coleccionable> coleccionable;
 
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
 		tile = new Tile[12];
-		jugador = new Jugador(this);
 		asignarTiles();
 
-		Thread hilo = new Thread(jugador);
-		hilo.start();
-		teclado = new TecladoControlador(jugador);
-		addKeyListener(teclado);
+		jugador = new Jugador(this, key);
+		key = new TecladoControlador(jugador);
+		jugador.setTeclado(key);
+		addKeyListener(key);
 		setFocusable(true);
 		requestFocus();
+		Thread hilo = new Thread(jugador);
+		hilo.start();
 	}
 
 	// Metodos
@@ -110,10 +111,9 @@ public class JPanell1Juego extends JPanel {
 				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
 						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
 
-				g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
-
 			}
 		}
+		g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
 		super.paintChildren(g);
 
 	}
@@ -138,7 +138,7 @@ public class JPanell1Juego extends JPanel {
 
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila < room.length && col < room.length) {
+		if (fila < room.length && col < room[fila].length) {
 			Tile ti = tile[room[fila][col]];
 			return ti.isColision() && !ti.isDanioJugador();
 		}
@@ -195,15 +195,22 @@ public class JPanell1Juego extends JPanel {
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
 
+		if (fisu < room.length && col < room[fisu].length) {
+			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
+		}
+
 		return false;
 	}
 
 	public boolean colisonizq(int x, int y) {
 		int tilesi = mapaModelo.getTitleSi();
-		int col = (x + ancho) / tilesi;
+		int col = x / tilesi;
 		int fisu = y / tilesi;
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
+		if (fisu < room.length && col < room[fisu].length) {
+			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
+		}
 		return false;
 	}
 
@@ -236,11 +243,11 @@ public class JPanell1Juego extends JPanel {
 	}
 
 	public TecladoControlador getTeclado() {
-		return teclado;
+		return key;
 	}
 
 	public void setTeclado(TecladoControlador teclado) {
-		this.teclado = teclado;
+		this.key = teclado;
 	}
 
 	public int getAltura() {
