@@ -50,10 +50,10 @@ public class Jugador extends Personaje implements Runnable {
 		// INICIALIZACION DE LOS SPRITES
 		idle = new BufferedImage[4];
 		correr = new BufferedImage[6];
-		salto = new BufferedImage[3];
-		escala = new BufferedImage[3];
+		salto = new BufferedImage[4];
+		escala = new BufferedImage[5];
 		danio = new BufferedImage[4];
-		porta = new BufferedImage[3];
+		porta = new BufferedImage[4];
 		asignarsprites();
 	}
 
@@ -184,39 +184,33 @@ public class Jugador extends Personaje implements Runnable {
 
 	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
 	private void actualizarsprite() {
-		String postuAnterior=posturaActual;
+		String postuAnterior = posturaActual;
 		if (!suelo)
 			posturaActual = "SALTO";
 		else if (movimiento)
 			posturaActual = "CORRER";
 		else
 			posturaActual = "IDLE";
-		if(!posturaActual.equals(postuAnterior)){    
-			spriteActual=0;    
-			contadorFra=0;   
+		if (!posturaActual.equals(postuAnterior)) {
+			spriteActual = 0;
+			contadorFra = 0;
 		}
-		
-		if(posturaActual.equals(postuAnterior)) {
-			spriteActual=0;
-		
-			
-		}
+
+
 		contadorFra++;
-	
+
 		if (contadorFra >= 8) {
 			contadorFra = 0;
 			spriteActual++;
 			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
-				
-			spriteActual = 0;
+
+				spriteActual = 0;
 			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
-				
 
-			spriteActual = 0;
+				spriteActual = 0;
 			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
-				
 
-			spriteActual = 0;
+				spriteActual = 0;
 		}
 
 	}
