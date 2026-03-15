@@ -19,11 +19,12 @@ import javax.swing.SwingUtilities;
 
 import controlador.TecladoControlador;
 
-public class JpanelMenu extends JPanel implements ActionListener, MouseListener {
+public class JpanelMenu extends JPanel  implements ActionListener, MouseListener {
 	JButton empezar;
 	JButton controles;
 	JButton salir;
 	JPanell1Juego juego;
+	
 
 	// Constructor de clase en donde se indica que el layout será nulo y se llaman
 	// alos metodos de la clase
@@ -110,6 +111,8 @@ public class JpanelMenu extends JPanel implements ActionListener, MouseListener 
 		add(salir);
 		salir.addActionListener(this);
 	}
+	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
