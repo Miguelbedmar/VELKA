@@ -184,14 +184,17 @@ public class Jugador extends Personaje implements Runnable {
 
 	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
 	private void actualizarsprite() {
-
+		String postuAnterior=posturaActual;
 		if (!suelo)
 			posturaActual = "SALTO";
 		else if (movimiento)
 			posturaActual = "CORRER";
 		else
 			posturaActual = "IDLE";
-
+		if(!posturaActual.equals(postuAnterior)){    
+			spriteActual=0;    
+			contadorFra=0;   
+		}
 		contadorFra++;
 
 		if (contadorFra >= 8) {
