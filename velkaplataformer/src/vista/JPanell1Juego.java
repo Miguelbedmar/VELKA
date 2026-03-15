@@ -158,6 +158,9 @@ public class JPanell1Juego extends JPanel {
 		return false;
 	}
 
+	public int getTilesi() {
+		return mapaModelo.getTitleSi();
+	}
 	public Map getMapaModelo() {
 		return mapaModelo;
 	}

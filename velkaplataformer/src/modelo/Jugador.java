@@ -40,8 +40,8 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
-		x = 0;
-		y = 240;
+		x = 250;
+		y = 406;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -136,17 +136,22 @@ public class Jugador extends Personaje implements Runnable {
 
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
-								// teniendo en cuenta la teoria de la gravedad
-		if (!comprobarColision()) {
 
-			velocidaCaida += gravedad;
-			y += velocidaCaida;
-			suelo = false;
-		} else {
-			if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
+		velocidaCaida += gravedad;
+		int nuy = y += velocidaCaida; // teniendo en cuenta la teoria de la gravedad
+		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
+			System.out.println("suelo: " + suelo + " velocidaCaida: " + velocidaCaida + " y: " + y);
+
+			// PERMITIR QUE EL
+			if (velocidad >= 0) { // JUGADOR SALTO SI
 				suelo = true;
 				velocidaCaida = 0;
+				y = (nuy + altura) / juego.getTilesi() * juego.getTilesi() - altura;
 			}
+
+		} else {
+			y = nuy;
+			suelo = false;
 		}
 
 	}
@@ -164,7 +169,7 @@ public class Jugador extends Personaje implements Runnable {
 	public void salto() {
 		System.out.println("Suelo" + suelo);
 		if (suelo) {
-			velocidaCaida = -28;
+			velocidaCaida = -15;
 			suelo = false;
 		}
 	}
