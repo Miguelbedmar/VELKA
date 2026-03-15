@@ -40,8 +40,8 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 4;
 		suelo = false;
-		x = 250;
-		y = 406;
+		x = 0;
+		y = 250;
 		posturaActual = "IDLE";
 		contadorFra = 0;
 		spriteActual = 0;
@@ -159,7 +159,9 @@ public class Jugador extends Personaje implements Runnable {
 	// METODOS DE MOVIMIENTO DEL JUGADOR
 
 	public void moverDerecha() {
-		x += velocidad;
+		if (!juego.colisonde(x, y)) {
+			x += velocidad;
+		}
 	}
 
 	public void moverIzquierda() {
