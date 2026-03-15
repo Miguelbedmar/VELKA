@@ -170,12 +170,17 @@ public class JPanell1Juego extends JPanel {
 		return false;
 	}
 
-	public boolean colisonde() {
+	public boolean colisonde(int x ,int y) {
 
+		
+		
+		
 		return false;
 	}
 
-	public boolean colisonizq() {
+	public boolean colisonizq(int x ,int y) {
+		
+		
 		return false;
 	}
 
