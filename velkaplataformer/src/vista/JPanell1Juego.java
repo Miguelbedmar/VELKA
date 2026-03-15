@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import controlador.TecladoControlador;
 import modelo.Jugador;
 import modelo.Map;
 import modelo.Tile;
@@ -22,6 +23,7 @@ public class JPanell1Juego extends JPanel {
 	private Map mapaModelo;
 	private Tile[] tile;
 	private Jugador jugador;
+	private TecladoControlador teclado;
 
 	// Constructor
 	public JPanell1Juego() throws IOException {
@@ -32,6 +34,10 @@ public class JPanell1Juego extends JPanel {
 
 		Thread hilo = new Thread(jugador);
 		hilo.start();
+		teclado=new TecladoControlador(jugador);
+		addKeyListener(teclado);
+		setFocusable(true);
+		requestFocus();
 	}
 
 	// Metodos
@@ -114,7 +120,6 @@ public class JPanell1Juego extends JPanel {
 		int tilesi = mapaModelo.getTitleSi();
 		int fila = y / tilesi;
 		int col = x / tilesi;
-		System.out.println("fila: " + fila + " col: " + col);
 
 		int[][] room = mapaModelo.zonActual();
 
@@ -137,6 +142,48 @@ public class JPanell1Juego extends JPanel {
 		}
 
 		return false;
+		
+		
+	}
+
+	public Map getMapaModelo() {
+		return mapaModelo;
+	}
+
+	public void setMapaModelo(Map mapaModelo) {
+		this.mapaModelo = mapaModelo;
+	}
+
+	public Tile[] getTile() {
+		return tile;
+	}
+
+	public void setTile(Tile[] tile) {
+		this.tile = tile;
+	}
+
+	public Jugador getJugador() {
+		return jugador;
+	}
+
+	public void setJugador(Jugador jugador) {
+		this.jugador = jugador;
+	}
+
+	public TecladoControlador getTeclado() {
+		return teclado;
+	}
+
+	public void setTeclado(TecladoControlador teclado) {
+		this.teclado = teclado;
+	}
+
+	public int getAltura() {
+		return altura;
+	}
+
+	public int getAncho() {
+		return ancho;
 	}
 
 }

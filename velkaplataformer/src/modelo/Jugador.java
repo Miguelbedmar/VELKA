@@ -160,8 +160,9 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void salto() {
+		System.out.println("Suelo"+suelo);
 		if (suelo) {
-			velocidaCaida = -15;
+			velocidaCaida = -28;
 			suelo = false;
 		}
 	}
