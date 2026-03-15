@@ -5,12 +5,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import controlador.TecladoControlador;
+import modelo.Coleccionable;
 import modelo.Jugador;
 import modelo.Map;
 import modelo.Tile;
@@ -24,12 +26,13 @@ public class JPanell1Juego extends JPanel {
 	private Tile[] tile;
 	private Jugador jugador;
 	private TecladoControlador teclado;
-
+	private ArrayList<Coleccionable>coleccionable;
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
 		tile = new Tile[12];
 		jugador = new Jugador(this);
+		new ArrayList<Coleccionable>();
 		asignarTiles();
 
 		Thread hilo = new Thread(jugador);
