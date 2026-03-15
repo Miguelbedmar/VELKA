@@ -251,4 +251,12 @@ public class JPanell1Juego extends JPanel {
 		return ancho;
 	}
 
+	public ArrayList<Coleccionable> getColeccionable() {
+		return coleccionable;
+	}
+
+	public void setColeccionable(ArrayList<Coleccionable> coleccionable) {
+		this.coleccionable = coleccionable;
+	}
+
 }

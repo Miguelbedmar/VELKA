@@ -129,6 +129,7 @@ public class Jugador extends Personaje implements Runnable {
 			actualizarsprite();
 			try {
 				Thread.sleep(16);
+				recogerColeccionable();
 				juego.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -138,7 +139,6 @@ public class Jugador extends Personaje implements Runnable {
 
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
-		System.out.println(vida);
 		velocidaCaida += gravedad;
 		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
@@ -151,8 +151,8 @@ public class Jugador extends Personaje implements Runnable {
 			}
 			if (juego.danio(x, y + altura) || juego.danio(x + ancho - 1, y + altura)) {
 				recibirdanio();
-				if(vida<=0) {
-					vida=3;
+				if (vida <= 0) {
+					vida = 3;
 					x = 215;
 					y = 350;
 				}
@@ -163,6 +163,16 @@ public class Jugador extends Personaje implements Runnable {
 			suelo = false;
 		}
 
+	}
+
+	// METODO COLECCIONABLE
+	public void recogerColeccionable() {
+		for (Coleccionable c : juego.getColeccionable()) {
+			if (!c.isAdquirido() && Math.abs(x - c.getX()) < juego.getTilesi()
+					&& Math.abs(y - c.getY()) < juego.getTilesi()) {
+				c.setAdquirido(true);
+			}
+		}
 	}
 
 	// METODOS DE MOVIMIENTO DEL JUGADOR
@@ -179,7 +189,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void salto() {
-		System.out.println("Suelo" + suelo);
+
 		if (suelo) {
 			velocidaCaida = -15;
 			suelo = false;
