@@ -131,12 +131,14 @@ public class Jugador extends Personaje implements Runnable {
 		while (true) {
 			gravedad();
 			actualizarsprite();
+			if (teclado != null && teclado.isDerechapress())
+				
+				moverDerecha();
+			if (teclado != null && teclado.isIzquierdapress())
+				
+				moverIzquierda();
 			try {
 				Thread.sleep(16);
-				if (teclado.isDerechapress())
-					moverDerecha();
-				if (teclado.isIzquierdapress())
-					moverIzquierda();
 				juego.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -186,6 +188,7 @@ public class Jugador extends Personaje implements Runnable {
 
 	public void moverDerecha() {
 		movimiento = true;
+		
 		if (!juego.colisonde(x, y)) {
 			x += velocidad;
 		}

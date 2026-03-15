@@ -194,7 +194,7 @@ public class JPanell1Juego extends JPanel {
 		int fisu = y / tilesi;
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
-
+		
 		if (fisu < room.length && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
 	
@@ -267,5 +267,14 @@ public class JPanell1Juego extends JPanel {
 	public void setColeccionable(ArrayList<Coleccionable> coleccionable) {
 		this.coleccionable = coleccionable;
 	}
+
+	public TecladoControlador getKey() {
+		return key;
+	}
+
+	public void setKey(TecladoControlador key) {
+		this.key = key;
+	}
+	
 
 }

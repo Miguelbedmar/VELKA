@@ -120,8 +120,9 @@ public class JpanelMenu extends JPanel implements ActionListener, MouseListener 
 				jframe.setContentPane(juego);
 				jframe.revalidate();
 				jframe.repaint();
-				jframe.addKeyListener(new TecladoControlador(juego.getJugador()));
-				jframe.requestFocus();
+				jframe.addKeyListener(juego.getKey());
+				jframe.requestFocusInWindow();
+
 				jframe.setSize(1300, 800);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block

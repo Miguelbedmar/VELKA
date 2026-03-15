@@ -24,16 +24,15 @@ public class TecladoControlador implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		key = e.getKeyCode();
-
+		
 		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
 			derechapress = true;
-			
-	
+
 		}
 		if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { // Ir a la izquierda con la flecha izquierda o a de wdas
 			izquierdapress = true;
-			
-		}	
+
+		}
 		if (key == KeyEvent.VK_C || key == KeyEvent.VK_SPACE) { // Tecla Salto con x o con espacio
 			jugador.salto();
 		}
@@ -45,11 +44,12 @@ public class TecladoControlador implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
+		int tecla = e.getKeyCode();
+		if (tecla == KeyEvent.VK_RIGHT || tecla == KeyEvent.VK_D) {
 			derechapress = false;
 
 		}
-		if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { // Ir a la izquierda con la flecha izquierda o a de wdas
+		if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_A) { // Ir a la izquierda con la flecha izquierda o a de wdas
 			izquierdapress = false;
 
 		}
@@ -88,7 +88,5 @@ public class TecladoControlador implements KeyListener {
 	public void setIzquierdapress(boolean izquierdapress) {
 		this.izquierdapress = izquierdapress;
 	}
-	
-	
 
 }
