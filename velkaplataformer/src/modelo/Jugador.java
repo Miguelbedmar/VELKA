@@ -142,7 +142,6 @@ public class Jugador extends Personaje implements Runnable {
 		velocidaCaida += gravedad;
 		int nuy = y += velocidaCaida; // teniendo en cuenta la teoria de la gravedad
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
-			System.out.println("suelo: " + suelo + " velocidaCaida: " + velocidaCaida + " y: " + y);
 
 			// PERMITIR QUE EL
 			if (velocidad >= 0) { // JUGADOR SALTO SI
@@ -199,14 +198,16 @@ public class Jugador extends Personaje implements Runnable {
 			contadorFra = 0;
 			spriteActual++;
 			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
-
-				spriteActual = 0;
+				contadorFra = 0;
+			spriteActual = 0;
 			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
+				contadorFra = 0;
 
-				spriteActual = 0;
+			spriteActual = 0;
 			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
+				contadorFra = 0;
 
-				spriteActual = 0;
+			spriteActual = 0;
 		}
 
 	}
@@ -314,6 +315,5 @@ public class Jugador extends Personaje implements Runnable {
 	public void setMovimiento(boolean movimiento) {
 		this.movimiento = movimiento;
 	}
-	
 
 }
