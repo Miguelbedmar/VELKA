@@ -115,6 +115,18 @@ public class JPanell1Juego extends JPanel {
 
 	}
 
+	/*
+	 * Estos metodos se encargan de calcular la colision para ello primero
+	 * necesitamo el tamaño de las tile las filas con y entre el is hay tile y
+	 * columna con x entre las tile segundo necesitamos la zona actual para ello
+	 * llamamos a mapaModelo.zonActual y lo meto dentro de una variable
+	 * bidimensional por unicamente necesito la zona en la que el jugador se
+	 * encuentre en ese momento, entonces para comprobar si hay colision y el jugador recibe danio 
+	 * tiene que cumplir la condicion de si la fila es menor que la longitud de la habitacion y si la
+	 * columna es menor que la habitacion
+	 * posteriormente  instanciamos  un objeto Tile  
+	 * y el metodo devuleve la colision y si dicha colision hace danio.
+	 */
 	public boolean hayColision(int x, int y) {
 
 		int tilesi = mapaModelo.getTitleSi();
@@ -158,9 +170,19 @@ public class JPanell1Juego extends JPanel {
 		return false;
 	}
 
+	public boolean colisonde() {
+
+		return false;
+	}
+
+	public boolean colisonizq() {
+		return false;
+	}
+
 	public int getTilesi() {
 		return mapaModelo.getTitleSi();
 	}
+
 	public Map getMapaModelo() {
 		return mapaModelo;
 	}
