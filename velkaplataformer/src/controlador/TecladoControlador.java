@@ -27,13 +27,13 @@ public class TecladoControlador implements KeyListener {
 
 		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
 			derechapress = true;
-
+			
 	
 		}
 		if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { // Ir a la izquierda con la flecha izquierda o a de wdas
 			izquierdapress = true;
-	
-		}
+			
+		}	
 		if (key == KeyEvent.VK_C || key == KeyEvent.VK_SPACE) { // Tecla Salto con x o con espacio
 			jugador.salto();
 		}

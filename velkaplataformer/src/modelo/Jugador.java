@@ -39,9 +39,8 @@ public class Jugador extends Personaje implements Runnable {
 	private TecladoControlador teclado;
 
 	// CONSTRUCTOR JUGADOR.
-	public Jugador(JPanell1Juego juego, TecladoControlador teclado) throws IOException {
+	public Jugador(JPanell1Juego juego) throws IOException {
 		this.juego = juego;
-		this.teclado = teclado;
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
@@ -59,7 +58,7 @@ public class Jugador extends Personaje implements Runnable {
 		danio = new BufferedImage[4];
 		porta = new BufferedImage[4];
 		asignarsprites();
-		
+
 	}
 
 	private void asignarsprites() throws IOException {
@@ -193,7 +192,10 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void moverIzquierda() {
-		x -= velocidad;
+		movimiento = true;
+		if (juego.colisonizq(x, y)) {
+			x -= velocidad;
+		}
 	}
 
 	public void salto() {
@@ -358,6 +360,5 @@ public class Jugador extends Personaje implements Runnable {
 	public void setTeclado(TecladoControlador teclado) {
 		this.teclado = teclado;
 	}
-	
 
 }

@@ -34,7 +34,7 @@ public class JPanell1Juego extends JPanel {
 		tile = new Tile[12];
 		asignarTiles();
 
-		jugador = new Jugador(this, key);
+		jugador = new Jugador(this);
 		key = new TecladoControlador(jugador);
 		jugador.setTeclado(key);
 		addKeyListener(key);
@@ -197,8 +197,10 @@ public class JPanell1Juego extends JPanel {
 
 		if (fisu < room.length && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
-		}
+	
 
+		}
+	
 		return false;
 	}
 
