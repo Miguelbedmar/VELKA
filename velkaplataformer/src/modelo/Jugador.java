@@ -140,12 +140,33 @@ public class Jugador extends Personaje implements Runnable {
 		if (!comprobarColision()) {
 
 			velocidaCaida += gravedad;
-			 y += velocidaCaida;
-			 suelo=false;
+			y += velocidaCaida;
+			suelo = false;
 		} else {
 			suelo = true;
 			velocidaCaida = 0;
-		}System.out.println(vida);
+		}
+
+	}
+
+	// METODOS DE MOVIMIENTO DEL JUGADOR
+
+	public void moverDerecha() {
+		x += velocidad;
+	}
+
+	public void moverIzquierda() {
+		x -= velocidad;
+	}
+
+	public void salto() {
+		if (suelo) {
+			velocidaCaida = -15;
+			suelo = false;
+		}
+	}
+
+	public void escalada() {
 
 	}
 
