@@ -112,11 +112,15 @@ public class JPanell1Juego extends JPanel {
 						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
 
 			}
-		}
+		} /*
+			 * Si el jugador devuelve true en movimiento derecha dibujamelo hacia la derecha
+			 * en el caso contrario volteame el sprite esto se consigue gracias al metodo gráfico con el ancho negativo
+			 */
 		if (jugador.isMovimientoDerecha()) {
 			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
 		} else {
-			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), -64, 64, null);
+			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), -64, 64, null); // Ancho negativo para conseguir el efecto de sprite volteado
+			
 		}
 		super.paintChildren(g);
 
@@ -213,8 +217,7 @@ public class JPanell1Juego extends JPanel {
 		int fisu = y / tilesi;
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
-		if (col < 0)
-			return true;
+
 		if (fisu < room.length && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
 		}
