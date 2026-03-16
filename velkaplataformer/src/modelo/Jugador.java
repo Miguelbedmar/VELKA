@@ -20,6 +20,7 @@ public class Jugador extends Personaje implements Runnable {
 	private boolean movimientoDerecha;
 	private boolean escalada;
 	private boolean daniop;
+	private boolean entrarPorta;
 
 	// ATRIBUTOS ANIMACIONES.
 
@@ -47,7 +48,7 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
-		escalada = false;
+		entrarPorta=false;
 		x = 215;
 		y = 350;
 		posturaActual = "IDLE";
@@ -239,7 +240,6 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void moverIzquierda() {
-		escalada = false;
 		movimiento = true;
 		movimientoDerecha = false;
 
@@ -259,7 +259,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void escalada() {
-		escalada = true;
+
 		if (juego.torreCerca(x - 1, y) || juego.torreCerca(x + ancho, y)) {
 
 			posturaActual = "ESCALA";
@@ -278,8 +278,8 @@ public class Jugador extends Personaje implements Runnable {
 			posturaActual = "SALTO";
 		else if (movimiento)
 			posturaActual = "CORRER";
-		else if (escalada)
-			posturaActual = "ESCALA";
+		else if (entrarPorta)
+			posturaActual = "PORTA";
 		else
 			posturaActual = "IDLE";
 		if (!posturaActual.equals(postuAnterior)) {
@@ -292,7 +292,7 @@ public class Jugador extends Personaje implements Runnable {
 		if (contadorFra >= 8) {
 			contadorFra = 0;
 			spriteActual++;
-			if (posturaActual.equals("ESCALA") && spriteActual >= escala.length)
+			if (posturaActual.equals("PORTA") && spriteActual >= porta.length)
 				spriteActual = 0;
 			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
 
