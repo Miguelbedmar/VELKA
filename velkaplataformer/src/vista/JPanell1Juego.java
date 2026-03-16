@@ -232,17 +232,18 @@ public class JPanell1Juego extends JPanel {
 
 	// METODO DE DETECTAR TILE PARA ESCALAR.
 	public boolean torreCerca(int x, int y) {
-		int tilesi = mapaModelo.getTitleSi();
-		int col = x / tilesi;
-		int fila = y / tilesi;
-		int[][] room = mapaModelo.zonActual();
 
-		if (fila < room.length && col < room[fila].length) {
-			return room[fila][col] == 10;
+		int tilenum = getTilEn(x, y);
 
-		}
-		return false;
+		return tilenum == 10;
 
+	}
+
+	public boolean portalNext(int x, int y) {
+
+		int tilenum = getTilEn(x, y);
+
+		return tilenum == 4;
 	}
 
 	private int getTilEn(int x, int y) {
@@ -251,7 +252,7 @@ public class JPanell1Juego extends JPanel {
 		int fila = y / tilesi;
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila >= 0 && fila < room.length && col < room[fila].length) {
+		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
 			return room[fila][col];
 		} else {
 			return 0;

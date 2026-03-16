@@ -170,6 +170,18 @@ public class Jugador extends Personaje implements Runnable {
 		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
 
+			if (juego.portalNext(x, y + altura) || juego.portalNext(x + ancho - 1, y + altura)) {
+				int roomActual = juego.getMapaModelo().getRoomActual();
+
+				juego.getMapaModelo().setRoomActual(roomActual + 1);
+
+				x = 215;
+				y = 310;
+				velocidaCaida = 0;
+				return;
+
+			}
+
 			// PERMITIR QUE EL
 			if (velocidad >= 0) { // JUGADOR SALTO SI
 				suelo = true;
