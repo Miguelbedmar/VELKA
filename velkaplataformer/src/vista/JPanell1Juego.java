@@ -239,9 +239,23 @@ public class JPanell1Juego extends JPanel {
 
 		if (fila < room.length && col < room[fila].length) {
 			return room[fila][col] == 10;
-	
+
 		}
 		return false;
+
+	}
+
+	private int getTilEn(int x, int y) {
+		int tilesi = mapaModelo.getTitleSi();
+		int col = x / tilesi;
+		int fila = y / tilesi;
+		int[][] room = mapaModelo.zonActual();
+
+		if (fila >= 0 && fila < room.length && col < room[fila].length) {
+			return room[fila][col];
+		} else {
+			return 0;
+		}
 
 	}
 
