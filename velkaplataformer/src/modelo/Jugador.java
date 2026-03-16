@@ -162,6 +162,9 @@ public class Jugador extends Personaje implements Runnable {
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
 		if (posturaActual.equals("ESCALA"))
 			return;
+		if (y > 800) {
+			recibirdanio();
+		}
 
 		velocidaCaida += gravedad;
 		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
@@ -195,6 +198,7 @@ public class Jugador extends Personaje implements Runnable {
 			if (!c.isAdquirido() && Math.abs(x - c.getX()) < juego.getTilesi()
 					&& Math.abs(y - c.getY()) < juego.getTilesi()) {
 				c.setAdquirido(true);
+
 			}
 		}
 	}
