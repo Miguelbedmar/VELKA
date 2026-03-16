@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controlador.TecladoControlador;
@@ -27,12 +28,14 @@ public class JPanell1Juego extends JPanel {
 	private Jugador jugador;
 	private TecladoControlador key;
 	private ArrayList<Coleccionable> coleccionable;
+	private JLabelFinJuego fin;
 	private int camX;
 	private int camY;
 
 	// Constructor
 	public JPanell1Juego() throws IOException {
 		mapaModelo = new Map();
+		fin= new JLabelFinJuego();
 		tile = new Tile[12];
 		asignarTiles();
 		coleccionable = new ArrayList<>();
@@ -267,12 +270,15 @@ public class JPanell1Juego extends JPanel {
 		}
 
 	}
-
-	public void finJuego() {
-		JLabelFinJuego fina = new JLabelFinJuego(this);
-				add(fina);
-
+	
+	public void mostrarFindejuego() {
+		fin.setText("FIN DEL JUEGO");
+		
+	
 	}
+	
+
+
 
 	public int getTilesi() {
 		return mapaModelo.getTitleSi();

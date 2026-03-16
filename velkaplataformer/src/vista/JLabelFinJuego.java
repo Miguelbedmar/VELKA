@@ -11,10 +11,9 @@ public class JLabelFinJuego extends JLabel implements ActionListener {
 	private JpanelMenu menu;
 	private JButton volverMenu;
 	private JButton salir;
-	private JFrame principal;
 
-	public JLabelFinJuego(JFrame principal) {
-		this.principal = principal;
+
+	public JLabelFinJuego() {
 		setOpaque(false);
 		setLayout(null);
 		setText("FIN DE JUEGO");
@@ -35,7 +34,7 @@ public class JLabelFinJuego extends JLabel implements ActionListener {
 
 		if (e.getSource() == volverMenu) {
 			menu = new JpanelMenu();
-
+			
 		}
 
 		if (e.getSource() == salir) {
