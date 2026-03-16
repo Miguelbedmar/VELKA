@@ -122,10 +122,13 @@ public class JPanell1Juego extends JPanel {
 		if (jugador.isMovimientoDerecha()) {
 			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
 		} else {
-			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), -64, 64, null); // Ancho negativo
-																									// para conseguir el
-																									// efecto de sprite
-																									// volteado
+			g.drawImage(jugador.getspriteActual(), jugador.getX() + 64, jugador.getY(), -64, 64, null); // Ancho
+																										// negativo
+																										// para
+																										// conseguir el
+																										// efecto de
+																										// sprite
+																										// volteado
 
 		}
 		super.paintChildren(g);

@@ -171,6 +171,7 @@ public class Jugador extends Personaje implements Runnable {
 
 		if (juego.finJuego(x, y + altura) || juego.finJuego(x + ancho - 1, y + altura)) {
 			System.out.println("GRACIAS POR JUGAR A LA DEMO VELKA ");
+			System.exit(0);
 			return;
 		}
 
