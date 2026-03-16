@@ -200,6 +200,7 @@ public class Jugador extends Personaje implements Runnable {
 					x = 215;
 					y = 350;
 				}
+
 			}
 
 		} else {
@@ -299,6 +300,9 @@ public class Jugador extends Personaje implements Runnable {
 		x = 215;
 		y = 350;
 		velocidaCaida = 0;
+		/*
+		 * if (vida == 0) { System.exit(0); }
+		 */
 
 	}
 
