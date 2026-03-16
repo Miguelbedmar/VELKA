@@ -239,6 +239,7 @@ public class JPanell1Juego extends JPanel {
 
 		if (fila < room.length && col < room[fila].length) {
 			return room[fila][col] == 10;
+	
 		}
 		return false;
 
