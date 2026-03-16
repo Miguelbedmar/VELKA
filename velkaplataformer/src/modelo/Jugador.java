@@ -141,6 +141,13 @@ public class Jugador extends Personaje implements Runnable {
 			if (teclado != null && teclado.isIzquierdapress())
 
 				moverIzquierda();
+			if (teclado != null && teclado.isEscalapress())
+				escalada();
+			if (teclado != null && teclado.isArribapress() && posturaActual.equals("ESCALA"))
+				y -= velocidad;
+
+			if (teclado != null && teclado.isAbajopress() && posturaActual.equals("ESCALA"))
+				y += velocidad;
 
 			try {
 				Thread.sleep(16);
@@ -153,6 +160,9 @@ public class Jugador extends Personaje implements Runnable {
 
 	@Override
 	public void gravedad() { // El metodo graveda calcula a que velocidad cae el jugador de un altura
+		if (posturaActual.equals("ESCALA"))
+			return;
+
 		velocidaCaida += gravedad;
 		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
@@ -220,8 +230,10 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void escalada() {
-
+	
 	}
+
+	
 
 	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
 	private void actualizarsprite() {

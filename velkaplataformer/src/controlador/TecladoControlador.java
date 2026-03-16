@@ -109,4 +109,29 @@ public class TecladoControlador implements KeyListener {
 		this.izquierdapress = izquierdapress;
 	}
 
+	public boolean isArribapress() {
+		return arribapress;
+	}
+
+	public void setArribapress(boolean arribapress) {
+		this.arribapress = arribapress;
+	}
+
+	public boolean isAbajopress() {
+		return abajopress;
+	}
+
+	public void setAbajopress(boolean abajopress) {
+		this.abajopress = abajopress;
+	}
+
+	public boolean isEscalapress() {
+		return escalapress;
+	}
+
+	public void setEscalapress(boolean escalapress) {
+		this.escalapress = escalapress;
+	}
+	
+
 }
