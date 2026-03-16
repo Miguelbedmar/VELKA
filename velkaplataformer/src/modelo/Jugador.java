@@ -230,10 +230,16 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void escalada() {
-	
-	}
+		if (juego.torreCerca(x - 1, y) || juego.torreCerca(x + ancho, y)) {
 
-	
+			posturaActual = "ESCALA";
+			suelo = false;
+			velocidaCaida = 0;
+		} else {
+			posturaActual = "IDLE";
+		}
+
+	}
 
 	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
 	private void actualizarsprite() {
