@@ -4,7 +4,7 @@ public class Map {
 	// Declaración de atributos
 
 	private int[][][] room; // matriz tridimensional
-	private int titleSi =112;
+	private int titleSi =96;
 
 	/*
 	 * Está clase se encarga de modelar el mapa por medio de matrices de 32*32 que

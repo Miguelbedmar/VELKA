@@ -27,6 +27,8 @@ public class JPanell1Juego extends JPanel {
 	private Jugador jugador;
 	private TecladoControlador key;
 	private ArrayList<Coleccionable> coleccionable;
+	private int camX;
+	private int camY;
 
 	// Constructor
 	public JPanell1Juego() throws IOException {
