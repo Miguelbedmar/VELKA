@@ -1,56 +1,46 @@
 package vista;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-public class JLabelFinJuego extends JLabel implements MouseListener {
-
+public class JLabelFinJuego extends JLabel implements ActionListener {
+	private JpanelMenu menu;
 	private JButton volverMenu;
 	private JButton salir;
 	private JFramePrincipal principal;
 
 	public JLabelFinJuego(JFramePrincipal principal) {
 		this.principal = principal;
-		setOpaque(true);
+		setOpaque(false);
 		setLayout(null);
-	}
-	
-	
-	
-	
-	
-	
+		setText("FIN DE JUEGO");
+		
+		volverMenu = new JButton("MENU INICIO");
+		setBounds(200, 350, 350, 100);
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		salir = new JButton("SALIR DEL JUEGO ");
+		setBounds(200, 350, 350, 100);
 
-	}
-
-	@Override
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
+		add(volverMenu);
+		add(salir);
+		
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
 
-	}
+		if (e.getSource() == volverMenu) {
+			menu = new JpanelMenu();
 
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		}
 
-	}
+		if (e.getSource() == salir) {
+			System.exit(0);
 
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		}
 
 	}
 
