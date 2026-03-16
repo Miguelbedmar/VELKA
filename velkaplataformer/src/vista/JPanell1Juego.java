@@ -213,6 +213,8 @@ public class JPanell1Juego extends JPanel {
 		int fisu = y / tilesi;
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
+		if (col < 0)
+			return true;
 		if (fisu < room.length && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
 		}
