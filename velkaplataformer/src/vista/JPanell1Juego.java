@@ -271,11 +271,7 @@ public class JPanell1Juego extends JPanel {
 
 	}
 	
-	public void mostrarFindejuego() {
-		fin.setText("FIN DEL JUEGO");
-		
-	
-	}
+
 	
 
 

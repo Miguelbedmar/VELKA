@@ -302,8 +302,7 @@ public class Jugador extends Personaje implements Runnable {
 		velocidaCaida = 0;
 
 		if (vida == 0) {
-
-			juego.mostrarFindejuego();
+			System.exit(0);
 		}
 	}
 

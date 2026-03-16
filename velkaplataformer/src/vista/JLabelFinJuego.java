@@ -14,34 +14,14 @@ public class JLabelFinJuego extends JLabel implements ActionListener {
 
 
 	public JLabelFinJuego() {
-		setOpaque(false);
-		setLayout(null);
-		setText("FIN DE JUEGO");
-
-		volverMenu = new JButton("MENU INICIO");
-		setBounds(200, 350, 350, 100);
-
-		salir = new JButton("SALIR DEL JUEGO ");
-		setBounds(200, 350, 350, 100);
-		add(menu);
-		volverMenu.addActionListener(menu);
-		add(salir);
-		salir.addActionListener(this);
+		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		if (e.getSource() == volverMenu) {
-			menu = new JpanelMenu();
-			
-		}
-
-		if (e.getSource() == salir) {
-			System.exit(0);
-
 		}
 
 	}
 
-}
+
