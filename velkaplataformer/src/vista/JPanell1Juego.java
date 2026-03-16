@@ -246,6 +246,11 @@ public class JPanell1Juego extends JPanel {
 		return tilenum == 4;
 	}
 
+	public boolean finJuego(int x, int y) {
+		int tilenum = getTilEn(x, y);
+		return tilenum == 5;
+	}
+
 	private int getTilEn(int x, int y) {
 		int tilesi = mapaModelo.getTitleSi();
 		int col = x / tilesi;

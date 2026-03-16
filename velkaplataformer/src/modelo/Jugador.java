@@ -168,6 +168,11 @@ public class Jugador extends Personaje implements Runnable {
 
 		velocidaCaida += gravedad;
 		int nuy = y + velocidaCaida; // teniendo en cuenta la teoria de la gravedad
+		
+		if(juego.finJuego(x, y+altura)||juego.finJuego(x+ancho-1, y+altura)) {
+			System.out.println("GRACIAS POR JUGAR A LA DEMO VELKA ");
+			returm
+		}
 		if (juego.tileSolido(x, y + altura) || (juego.tileSolido(x + ancho - 1, y + altura))) {
 
 			if (juego.portalNext(x, y + altura) || juego.portalNext(x + ancho - 1, y + altura)) {
