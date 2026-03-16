@@ -35,7 +35,7 @@ public class JPanell1Juego extends JPanel {
 		mapaModelo = new Map();
 		tile = new Tile[12];
 		asignarTiles();
-
+		coleccionable = new ArrayList<>();
 		jugador = new Jugador(this);
 		key = new TecladoControlador(jugador);
 		jugador.setTeclado(key);
@@ -155,7 +155,7 @@ public class JPanell1Juego extends JPanel {
 
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila < room.length && col < room[fila].length) {
+		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
 			Tile ti = tile[room[fila][col]];
 			return ti.isColision() && !ti.isDanioJugador();
 		}
@@ -183,7 +183,7 @@ public class JPanell1Juego extends JPanel {
 		int col = x / mapaModelo.getTitleSi();
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila < room.length && col < room[fila].length) {
+		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
 			return tile[room[fila][col]].isDanioJugador();
 		}
 
@@ -197,7 +197,7 @@ public class JPanell1Juego extends JPanel {
 		int col = x / mapaModelo.getTitleSi();
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila < room.length && col < room[fila].length) {
+		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
 			return tile[room[fila][col]].isColision();
 		}
 
@@ -212,7 +212,7 @@ public class JPanell1Juego extends JPanel {
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
 
-		if (fisu < room.length && col < room[fisu].length) {
+		if (fisu >= 0 && fisu < room.length && fiinfe >= 0 && col >= 0 && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
 
 		}
@@ -227,7 +227,7 @@ public class JPanell1Juego extends JPanel {
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
 
-		if (fisu < room.length && col < room[fisu].length) {
+		if (fisu >= 0 && fisu < room.length && fiinfe >= 0 && col >= 0 && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
 		}
 		return false;
