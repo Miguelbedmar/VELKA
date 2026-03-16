@@ -17,6 +17,7 @@ public class Jugador extends Personaje implements Runnable {
 	private int velocidad;
 	private boolean suelo;
 	private boolean movimiento;
+	private boolean movimientoDerecha;
 
 	// ATRIBUTOS ANIMACIONES.
 
@@ -107,10 +108,13 @@ public class Jugador extends Personaje implements Runnable {
 		// SI LA POSTURA EQUIVALE A JUGADOR SALTANDO
 		if (posturaActual.equals("SALTO"))
 			return salto[spriteActual];
+		// SI LA POSTURA EQUIVALE A ESCALADA
 		if (posturaActual.equals("ESCALA"))
 			return escala[spriteActual];
+		// SI LA POSTURA EQUIVALE A RECIBIR DANIO
 		if (posturaActual.equals("DANIO"))
 			return danio[spriteActual];
+		// SI LA POSTURA EQUIVALE A INTERACTURAR CON UN PORTAL
 		if (posturaActual.equals("PORTA"))
 			return porta[spriteActual];
 		return idle[0];
@@ -132,10 +136,10 @@ public class Jugador extends Personaje implements Runnable {
 			gravedad();
 			actualizarsprite();
 			if (teclado != null && teclado.isDerechapress())
-				
+
 				moverDerecha();
 			if (teclado != null && teclado.isIzquierdapress())
-				
+
 				moverIzquierda();
 			try {
 				Thread.sleep(16);
@@ -188,7 +192,8 @@ public class Jugador extends Personaje implements Runnable {
 
 	public void moverDerecha() {
 		movimiento = true;
-		
+		movimientoDerecha = true;
+
 		if (!juego.colisonde(x, y)) {
 			x += velocidad;
 		}
@@ -196,6 +201,7 @@ public class Jugador extends Personaje implements Runnable {
 
 	public void moverIzquierda() {
 		movimiento = true;
+		movimientoDerecha = false;
 		if (juego.colisonizq(x, y)) {
 			x -= velocidad;
 		}
@@ -241,6 +247,7 @@ public class Jugador extends Personaje implements Runnable {
 			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
 
 				spriteActual = 0;
+
 		}
 
 	}
