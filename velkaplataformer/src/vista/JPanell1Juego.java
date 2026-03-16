@@ -113,7 +113,11 @@ public class JPanell1Juego extends JPanel {
 
 			}
 		}
-		g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
+		if (jugador.isMovimientoDerecha()) {
+			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), 64, 64, null);
+		} else {
+			g.drawImage(jugador.getspriteActual(), jugador.getX(), jugador.getY(), -64, 64, null);
+		}
 		super.paintChildren(g);
 
 	}
@@ -194,13 +198,12 @@ public class JPanell1Juego extends JPanel {
 		int fisu = y / tilesi;
 		int fiinfe = (y + altura - 1) / tilesi;
 		int[][] room = mapaModelo.zonActual();
-		
+
 		if (fisu < room.length && col < room[fisu].length) {
 			return tile[room[fisu][col]].isColision() || tile[room[fiinfe][col]].isColision();
-	
 
 		}
-	
+
 		return false;
 	}
 
@@ -275,6 +278,5 @@ public class JPanell1Juego extends JPanel {
 	public void setKey(TecladoControlador key) {
 		this.key = key;
 	}
-	
 
 }

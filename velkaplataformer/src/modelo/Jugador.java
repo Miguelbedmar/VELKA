@@ -371,4 +371,41 @@ public class Jugador extends Personaje implements Runnable {
 		this.teclado = teclado;
 	}
 
+	public boolean isMovimientoDerecha() {
+		return movimientoDerecha;
+	}
+
+	public void setMovimientoDerecha(boolean movimientoDerecha) {
+		this.movimientoDerecha = movimientoDerecha;
+	}
+
+	public int getVelocidaCaida() {
+		return velocidaCaida;
+	}
+
+	public void setVelocidaCaida(int velocidaCaida) {
+		this.velocidaCaida = velocidaCaida;
+	}
+
+	public JPanell1Juego getJuego() {
+		return juego;
+	}
+
+	public void setJuego(JPanell1Juego juego) {
+		this.juego = juego;
+	}
+
+	public int getAltura() {
+		return altura;
+	}
+
+	public int getAncho() {
+		return ancho;
+	}
+
+	public int getGravedad() {
+		return gravedad;
+	}
+	
+
 }
