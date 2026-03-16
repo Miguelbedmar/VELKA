@@ -18,6 +18,8 @@ public class Jugador extends Personaje implements Runnable {
 	private boolean suelo;
 	private boolean movimiento;
 	private boolean movimientoDerecha;
+	private boolean escalada;
+	private boolean daniop;
 
 	// ATRIBUTOS ANIMACIONES.
 
@@ -45,6 +47,7 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
+		escalada = false;
 		x = 215;
 		y = 350;
 		posturaActual = "IDLE";
@@ -134,6 +137,7 @@ public class Jugador extends Personaje implements Runnable {
 	public void run() { // Ejecucion de hilos llamando al metodo gravedad
 		while (true) {
 			gravedad();
+			recogerColeccionable();
 			actualizarsprite();
 			if (teclado != null && teclado.isDerechapress())
 
@@ -179,6 +183,7 @@ public class Jugador extends Personaje implements Runnable {
 			int roomActual = juego.getMapaModelo().getRoomActual();
 
 			juego.getMapaModelo().setRoomActual(roomActual + 1);
+			juego.cargarColeccionable();
 
 			x = 215;
 			y = 310;
@@ -224,6 +229,7 @@ public class Jugador extends Personaje implements Runnable {
 	// METODOS DE MOVIMIENTO DEL JUGADOR
 
 	public void moverDerecha() {
+
 		movimiento = true;
 		movimientoDerecha = true;
 
@@ -233,6 +239,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void moverIzquierda() {
+		escalada = false;
 		movimiento = true;
 		movimientoDerecha = false;
 
@@ -252,6 +259,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void escalada() {
+		escalada = true;
 		if (juego.torreCerca(x - 1, y) || juego.torreCerca(x + ancho, y)) {
 
 			posturaActual = "ESCALA";
@@ -270,6 +278,8 @@ public class Jugador extends Personaje implements Runnable {
 			posturaActual = "SALTO";
 		else if (movimiento)
 			posturaActual = "CORRER";
+		else if (escalada)
+			posturaActual = "ESCALA";
 		else
 			posturaActual = "IDLE";
 		if (!posturaActual.equals(postuAnterior)) {
@@ -282,6 +292,8 @@ public class Jugador extends Personaje implements Runnable {
 		if (contadorFra >= 8) {
 			contadorFra = 0;
 			spriteActual++;
+			if (posturaActual.equals("ESCALA") && spriteActual >= escala.length)
+				spriteActual = 0;
 			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
 
 				spriteActual = 0;
@@ -452,6 +464,22 @@ public class Jugador extends Personaje implements Runnable {
 
 	public int getGravedad() {
 		return gravedad;
+	}
+
+	public boolean isEscalada() {
+		return escalada;
+	}
+
+	public void setEscalada(boolean escalada) {
+		this.escalada = escalada;
+	}
+
+	public boolean isDaniop() {
+		return daniop;
+	}
+
+	public void setDaniop(boolean daniop) {
+		this.daniop = daniop;
 	}
 
 }

@@ -39,6 +39,7 @@ public class JPanell1Juego extends JPanel {
 		tile = new Tile[12];
 		asignarTiles();
 		coleccionable = new ArrayList<>();
+		cargarColeccionable();
 		jugador = new Jugador(this);
 		key = new TecladoControlador(jugador);
 		jugador.setTeclado(key);
@@ -113,6 +114,14 @@ public class JPanell1Juego extends JPanel {
 				if (num == 0) {
 					continue; // Saltamos la iterracion en el caso de que numero 0
 				}
+				
+					if (num == 3) {
+					int x = col * mapaModelo.getTitleSi();
+					int y = fila * mapaModelo.getTitleSi();
+					if (isColeccionableAdquiridoEn(x, y)) { 
+						continue;
+					}
+				}
 				g.drawImage(tile[num].getImagen(), col * mapaModelo.getTitleSi(), fila * mapaModelo.getTitleSi(),
 						mapaModelo.getTitleSi(), mapaModelo.getTitleSi(), null);
 
@@ -167,6 +176,7 @@ public class JPanell1Juego extends JPanel {
 	}
 
 	public void cargarColeccionable() {
+		coleccionable.clear();
 		int[][] room = mapaModelo.zonActual();
 		for (int fila = 0; fila < room.length; fila++) {
 			for (int col = 0; col < room[fila].length; col++) {
@@ -178,6 +188,15 @@ public class JPanell1Juego extends JPanel {
 				}
 			}
 		}
+	}
+
+	private boolean isColeccionableAdquiridoEn(int x, int y) {
+		for (Coleccionable c : coleccionable) {
+			if (c.getX() == x && c.getY() == y) {
+				return c.isAdquirido();
+			}
+		}
+		return false;
 	}
 
 	public boolean danio(int x, int y) {

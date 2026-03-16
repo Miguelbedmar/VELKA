@@ -28,7 +28,8 @@ public class TecladoControlador implements KeyListener {
 	public void keyPressed(KeyEvent e) {
 		key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
+		if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {// Ir a la izquierda con la flecha izquierda o a de
+			// wdas
 			derechapress = true;
 
 		}
@@ -39,13 +40,13 @@ public class TecladoControlador implements KeyListener {
 		if (key == KeyEvent.VK_C || key == KeyEvent.VK_SPACE) { // Tecla Salto con x o con espacio
 			jugador.salto();
 		} // TECLA DE ESCALAR
-		if (key == KeyEvent.VK_Z) {
+		if (key == KeyEvent.VK_Z) { // Escalar 
 			escalapress = true;
 		}
-		if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) {
+		if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { // Mientras escalas permites al jugador subir 
 			arribapress = true;
 		}
-		if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) {
+		if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { // Mientras escalas permites al jugador bajar.
 			abajopress = true;
 		}
 
@@ -58,8 +59,7 @@ public class TecladoControlador implements KeyListener {
 			derechapress = false;
 
 		}
-		if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_A) { // Ir a la izquierda con la flecha izquierda o a de
-																	// wdas
+		if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_A) { 
 			izquierdapress = false;
 
 		}
