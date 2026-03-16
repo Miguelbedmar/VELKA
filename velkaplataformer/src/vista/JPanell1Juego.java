@@ -268,6 +268,12 @@ public class JPanell1Juego extends JPanel {
 
 	}
 
+	public void finJuego() {
+		JLabelFinJuego fina = new JLabelFinJuego(this);
+				add(fina);
+
+	}
+
 	public int getTilesi() {
 		return mapaModelo.getTitleSi();
 	}

@@ -4,29 +4,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class JLabelFinJuego extends JLabel implements ActionListener {
 	private JpanelMenu menu;
 	private JButton volverMenu;
 	private JButton salir;
-	private JFramePrincipal principal;
+	private JFrame principal;
 
-	public JLabelFinJuego(JFramePrincipal principal) {
+	public JLabelFinJuego(JFrame principal) {
 		this.principal = principal;
 		setOpaque(false);
 		setLayout(null);
 		setText("FIN DE JUEGO");
-		
+
 		volverMenu = new JButton("MENU INICIO");
 		setBounds(200, 350, 350, 100);
 
 		salir = new JButton("SALIR DEL JUEGO ");
 		setBounds(200, 350, 350, 100);
-
-		add(volverMenu);
+		add(menu);
+		volverMenu.addActionListener(menu);
 		add(salir);
-		
+		salir.addActionListener(this);
 	}
 
 	@Override
