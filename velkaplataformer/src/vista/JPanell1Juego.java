@@ -178,7 +178,7 @@ public class JPanell1Juego extends JPanel {
 		int col = x / mapaModelo.getTitleSi();
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
+		if (fila < room.length && col < room[fila].length) {
 			return tile[room[fila][col]].isDanioJugador();
 		}
 
@@ -192,7 +192,7 @@ public class JPanell1Juego extends JPanel {
 		int col = x / mapaModelo.getTitleSi();
 		int[][] room = mapaModelo.zonActual();
 
-		if (fila >= 0 && fila < room.length && col >= 0 && col < room[fila].length) {
+		if (fila < room.length && col < room[fila].length) {
 			return tile[room[fila][col]].isColision();
 		}
 
