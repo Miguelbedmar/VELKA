@@ -31,4 +31,4 @@ Campos de texto (JTextField o JTextArea) si el juego requiere que el usuario ing
 
 1. Java
 2. Libreria Swing Java
-3. Eclipse
+3. Visual Studio Code
