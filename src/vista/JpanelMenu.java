@@ -1,23 +1,19 @@
 package vista;
 
-import java.awt.Cursor;
 import java.awt.Dimension;
-
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
-import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
-
-import controlador.TecladoControlador;
 
 public class JpanelMenu extends JPanel  implements ActionListener, MouseListener {
 	JButton empezar;
@@ -113,7 +109,7 @@ public class JpanelMenu extends JPanel  implements ActionListener, MouseListener
 	}
 	
 
-
+	/** FUTURA IMPLEMENTACIÓN**/
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == empezar) {
