@@ -1,11 +1,16 @@
 # VELKA
-
+Juego plataformero inspirado en el famoso Celeste que sigue la estructura de Modelo Vista y controlador
 # Descripción del proyecto.
+<<<<<<< HEAD
 Velka es un videojuego  utilizando Java como  lenguaje
 el proyecto debera incluir una interfaz gráfica (Jframe).
 
 El proyecto se ha bautizado como  Velka  un videojuego plataformero inspirado en  celeste
 el videojuego incluira unicamente un único nivel principalmente aunque  más adelante se  añadiran otros dos niveles más.
+=======
+Velka es un videojuego que originalmente nacio como un proyecto final de 1º de DAM de la asignatura de programación pero que 
+actualmente se está mejorando por voluntad propia.
+>>>>>>> 8f3f602605c225c64150e1dd49d100b04aed4e63
 
 # Requisitos técnicos del videojuego.
 1. Uso de contenedores principales y secundarios:
@@ -31,4 +36,4 @@ Campos de texto (JTextField o JTextArea) si el juego requiere que el usuario ing
 
 1. Java
 2. Libreria Swing Java
-3. Visual Studio Code
+3. Visual Studio Code 
