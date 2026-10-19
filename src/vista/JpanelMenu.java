@@ -39,8 +39,7 @@ public class JpanelMenu extends JPanel  implements ActionListener, MouseListener
 		Dimension dimension = this.getSize();
 		ImageIcon icon = new ImageIcon(getClass().getResource("/recursos/FONDOMENU.png")); // Indicamos la ruta de la
 																							// imagen ya que si no
-																							// saltara error ya que
-																							// dectara que es nulo
+																							// saltara error 
 		g.drawImage(icon.getImage(), 0, 0, dimension.width, dimension.height, null);
 		setOpaque(false);
 		super.paintChildren(g);

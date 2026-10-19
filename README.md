@@ -1,7 +1,7 @@
 # VELKA
 
 # Descripción del proyecto.
-Mejorar el proyecto utilizando Java como  lenguaje
+Velka es un videojuego  utilizando Java como  lenguaje
 el proyecto debera incluir una interfaz gráfica (Jframe).
 
 El proyecto se ha bautizado como  Velka  un videojuego plataformero inspirado en  celeste
