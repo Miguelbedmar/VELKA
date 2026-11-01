@@ -48,7 +48,7 @@ public class Jugador extends Personaje implements Runnable {
 		vida = 3;
 		velocidad = 5;
 		suelo = false;
-		entrarPorta=false;
+		entrarPorta = false;
 		x = 215;
 		y = 350;
 		posturaActual = "IDLE";
@@ -58,7 +58,7 @@ public class Jugador extends Personaje implements Runnable {
 		// INICIALIZACION DE LOS SPRITES
 		idle = new BufferedImage[4];
 		correr = new BufferedImage[6];
-		salto = new BufferedImage[4];
+		salto = new BufferedImage[3];
 		escala = new BufferedImage[5];
 		danio = new BufferedImage[4];
 		porta = new BufferedImage[4];
@@ -294,7 +294,7 @@ public class Jugador extends Personaje implements Runnable {
 			spriteActual++;
 			if (posturaActual.equals("PORTA") && spriteActual >= porta.length)
 				spriteActual = 0;
-			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
+			if (posturaActual.equals("IDLE") && spriteActual >= idle.length )
 
 				spriteActual = 0;
 			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
@@ -314,8 +314,10 @@ public class Jugador extends Personaje implements Runnable {
 		velocidaCaida = 0;
 
 		if (vida == 0) {
+			vida = 5;
+			x = 215;
+			y = 350;
 
-			System.exit(0);
 		}
 	}
 
