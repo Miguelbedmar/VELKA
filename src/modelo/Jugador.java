@@ -155,7 +155,7 @@ public class Jugador extends Personaje implements Runnable {
 				y += velocidad;
 
 			try {
-				Thread.sleep(16);
+				Thread.sleep(18);
 				juego.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -314,6 +314,7 @@ public class Jugador extends Personaje implements Runnable {
 		velocidaCaida = 0;
 
 		if (vida == 0) {
+
 			System.exit(0);
 		}
 	}
