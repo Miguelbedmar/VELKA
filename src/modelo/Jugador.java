@@ -21,7 +21,8 @@ public class Jugador extends Personaje implements Runnable {
 	private boolean escalada;
 	private boolean daniop;
 	private boolean entrarPorta;
-
+	private boolean danioRecibir = true;
+	private int contadorDanio = 0;
 	// ATRIBUTOS ANIMACIONES.
 
 	private BufferedImage[] idle;
@@ -277,15 +278,16 @@ public class Jugador extends Personaje implements Runnable {
 	private void actualizarsprite() {
 		String nuevaPostura;
 
-		if (!suelo) {
+		if (!suelo)
 			nuevaPostura = "SALTO";
-		} else if (movimiento) {
+		else if (movimiento)
 			nuevaPostura = "CORRER";
-		} else if (entrarPorta) {
+		else if (danioRecibir)
+			nuevaPostura = "DANIO";
+		else if (entrarPorta)
 			nuevaPostura = "PORTA";
-		} else {
+		else
 			nuevaPostura = "IDLE";
-		}
 
 		if (!nuevaPostura.equals(posturaActual)) {
 			spriteActual = 0;
@@ -301,8 +303,9 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public void recibirdanio() {
+
 		vida--;
-		x = 215;
+		x = 215; // Spawn del jugador
 		y = 350;
 		velocidaCaida = 0;
 
