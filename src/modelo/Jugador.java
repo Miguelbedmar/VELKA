@@ -103,25 +103,33 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public BufferedImage getspriteActual() {
-		// SI LA POSTURA EQUIVALE A JUGADOR INACTIVO
-		if (posturaActual.equals("IDLE"))
-			return idle[spriteActual];
-		// SI LA POSTURA EQUIVALE A JUGADOR CORRIENDO
-		if (posturaActual.equals("CORRER"))
-			return correr[spriteActual];
-		// SI LA POSTURA EQUIVALE A JUGADOR SALTANDO
-		if (posturaActual.equals("SALTO"))
-			return salto[spriteActual];
-		// SI LA POSTURA EQUIVALE A ESCALADA
-		if (posturaActual.equals("ESCALA"))
-			return escala[spriteActual];
-		// SI LA POSTURA EQUIVALE A RECIBIR DANIO
-		if (posturaActual.equals("DANIO"))
-			return danio[spriteActual];
-		// SI LA POSTURA EQUIVALE A INTERACTURAR CON UN PORTAL
-		if (posturaActual.equals("PORTA"))
-			return porta[spriteActual];
-		return idle[0];
+		BufferedImage[] frame;
+
+		switch (posturaActual) {
+			case "IDLE":
+				frame = idle;
+				break;
+			case "CORRER":
+				frame = correr;
+				break;
+			case "SALTO":
+				frame = salto;
+				break;
+			case "ESCALA":
+				frame = escala;
+				break;
+			case "DANIO":
+				frame = danio;
+				break;
+			case "PORTA":
+				frame = porta;
+				break;
+
+			default:
+				frame = idle;
+				break;
+		}
+		return frame[spriteActual % frame.length];
 	}
 
 	/*
@@ -294,13 +302,13 @@ public class Jugador extends Personaje implements Runnable {
 			spriteActual++;
 			if (posturaActual.equals("PORTA") && spriteActual >= porta.length)
 				spriteActual = 0;
-			if (posturaActual.equals("IDLE") && spriteActual >= idle.length )
+			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
 
 				spriteActual = 0;
 			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
 
 				spriteActual = 0;
-			if (posturaActual.equals("SALTO") && spriteActual >= salto.length )
+			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
 
 				spriteActual = 0;
 		}
