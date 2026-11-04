@@ -14,6 +14,8 @@ public class TecladoControlador implements KeyListener {
 	private boolean arribapress;
 	private boolean abajopress;
 	private boolean escalapress;
+	private boolean cPress;
+	private boolean espacioPress;
 
 	public TecladoControlador(Jugador jugador) {
 		this.jugador = jugador;
@@ -38,12 +40,23 @@ public class TecladoControlador implements KeyListener {
 
 		}
 		if (key == KeyEvent.VK_C || key == KeyEvent.VK_SPACE) { // Tecla Salto con x o con espacio
-			jugador.salto();
-		} // TECLA DE ESCALAR
-		if (key == KeyEvent.VK_Z) { // Escalar 
+			boolean yaPulsada = cPress || espacioPress;
+
+			if (key == KeyEvent.VK_C) {
+				cPress = true;
+			} else if (key == KeyEvent.VK_SPACE) {
+				espacioPress = true;
+			}
+			if (!yaPulsada) {
+				jugador.salto();
+
+			}
+		}
+		// TECLA DE ESCALAR
+		if (key == KeyEvent.VK_Z) { // Escalar
 			escalapress = true;
 		}
-		if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { // Mientras escalas permites al jugador subir 
+		if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { // Mientras escalas permites al jugador subir
 			arribapress = true;
 		}
 		if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { // Mientras escalas permites al jugador bajar.
@@ -59,9 +72,15 @@ public class TecladoControlador implements KeyListener {
 			derechapress = false;
 
 		}
-		if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_A) { 
+		if (tecla == KeyEvent.VK_LEFT || tecla == KeyEvent.VK_A) {
 			izquierdapress = false;
 
+		}
+		if (tecla == KeyEvent.VK_C) {
+			cPress = false;
+		}
+		if (tecla == KeyEvent.VK_SPACE) {
+			espacioPress = false;
 		}
 		if (tecla == KeyEvent.VK_Z) {
 			escalapress = false;
@@ -132,6 +151,5 @@ public class TecladoControlador implements KeyListener {
 	public void setEscalapress(boolean escalapress) {
 		this.escalapress = escalapress;
 	}
-	
 
 }
