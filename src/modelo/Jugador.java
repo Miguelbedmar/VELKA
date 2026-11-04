@@ -103,32 +103,7 @@ public class Jugador extends Personaje implements Runnable {
 	}
 
 	public BufferedImage getspriteActual() {
-		BufferedImage[] frame;
-
-		switch (posturaActual) {
-			case "IDLE":
-				frame = idle;
-				break;
-			case "CORRER":
-				frame = correr;
-				break;
-			case "SALTO":
-				frame = salto;
-				break;
-			case "ESCALA":
-				frame = escala;
-				break;
-			case "DANIO":
-				frame = danio;
-				break;
-			case "PORTA":
-				frame = porta;
-				break;
-
-			default:
-				frame = idle;
-				break;
-		}
+		BufferedImage[] frame = framesDe(posturaActual);
 		return frame[spriteActual % frame.length];
 	}
 
@@ -279,40 +254,50 @@ public class Jugador extends Personaje implements Runnable {
 
 	}
 
+	private BufferedImage[] framesDe(String posturaJugador) {
+		switch (posturaJugador) {
+			case "IDLE":
+				return idle;
+			case "CORRER":
+				return correr;
+			case "SALTO":
+				return salto;
+			case "ESCALA":
+				return escala;
+			case "DANIO":
+				return danio;
+			case "PORTA":
+				return porta;
+			default:
+				return idle;
+		}
+	}
+
 	// METODO QUE SE ENCARGARA DE ACTUALIZAS EL SPRITE DEL JUGADOR .
 	private void actualizarsprite() {
-		String postuAnterior = posturaActual;
-		if (!suelo)
-			posturaActual = "SALTO";
-		else if (movimiento)
-			posturaActual = "CORRER";
-		else if (entrarPorta)
-			posturaActual = "PORTA";
-		else
-			posturaActual = "IDLE";
-		if (!posturaActual.equals(postuAnterior)) {
-			spriteActual = 0;
-			contadorFra = 0;
+		String nuevaPostura;
+
+		if (!suelo) {
+			nuevaPostura = "SALTO";
+		} else if (movimiento) {
+			nuevaPostura = "CORRER";
+		} else if (entrarPorta) {
+			nuevaPostura = "PORTA";
+		} else {
+			nuevaPostura = "IDLE";
 		}
 
+		if (!nuevaPostura.equals(posturaActual)) {
+			spriteActual = 0;
+			contadorFra = 0;
+			posturaActual = nuevaPostura;
+		}
 		contadorFra++;
 
 		if (contadorFra >= 8) {
 			contadorFra = 0;
-			spriteActual++;
-			if (posturaActual.equals("PORTA") && spriteActual >= porta.length)
-				spriteActual = 0;
-			if (posturaActual.equals("IDLE") && spriteActual >= idle.length)
-
-				spriteActual = 0;
-			if (posturaActual.equals("CORRER") && spriteActual >= correr.length)
-
-				spriteActual = 0;
-			if (posturaActual.equals("SALTO") && spriteActual >= salto.length)
-
-				spriteActual = 0;
+			spriteActual = (spriteActual + 1) % framesDe(posturaActual).length;
 		}
-
 	}
 
 	public void recibirdanio() {
