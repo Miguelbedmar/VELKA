@@ -1,39 +1,76 @@
 # VELKA
-Juego plataformero inspirado en el famoso Celeste que sigue la estructura de Modelo Vista y controlador
-# Descripción del proyecto.
-<<<<<<< HEAD
-Velka es un videojuego  utilizando Java como  lenguaje
-el proyecto debera incluir una interfaz gráfica (Jframe).
+Desarrollado por Miguel Bedmar Diaz de la Serna. 
+# 📋 Descripción del proyecto.
+Velka es un videojuego  inspirado en celeste  en donde tendras que superar  obstaculos puedes saltar y escalar tiene sistema de colision  que la controla la clase tile 
+sistema de cambio de mapa  al llegar a un portal  te dirige al siguiente nivel 
+, tiene un sistema de respawn siempre y cuando el jugador no pierda aunque todavia falta por implementar  el menu de fin de juego.
 
-El proyecto se ha bautizado como  Velka  un videojuego plataformero inspirado en  celeste
-el videojuego incluira unicamente un único nivel principalmente aunque  más adelante se  añadiran otros dos niveles más.
-=======
-Velka es un videojuego que originalmente nacio como un proyecto final de 1º de DAM de la asignatura de programación pero que 
-actualmente se está mejorando por voluntad propia.
->>>>>>> 8f3f602605c225c64150e1dd49d100b04aed4e63
 
-# Requisitos técnicos del videojuego.
-1. Uso de contenedores principales y secundarios:
-   - Se debe emplear JFrame como ventana principal.
-   - Se deben usar JPanel para organizar los diferentes elementos gráficos dentro de la interfaz.
-2. Distribución de la interfaz mediante Layouts:
-    - Se debe emplear un gestor de diseño (Layout) para organizar los elementos dentro de la interfaz  (BorderLayout, FlowLayout, GridLayout, etc.).
-3. Uso de componentes gráficos:
-   - Botones (JButton) para interactuar con el juego.
-   - Etiquetas (JLabel) para mostrar información.
-Campos de texto (JTextField o JTextArea) si el juego requiere que el usuario ingrese información.
-4. Personalización de la interfaz:
-   - Aplicar colores y estilos personalizados.
-   - Se recomienda el uso de fuentes y estilos gráficos para mejorar la experiencia del usuario.
-5. Uso de elementos multimedia:
-    -  Imágenes para representar elementos del juego.
-    -  Sonidos para mejorar la interactividad (efectos de clic, victoria, derrota, etc.).
-    -  Animaciones o GIFs para mejorar la experiencia visual del juego.
-6. Navegación entre diferentes paneles:
-    - Se debe permitir cambiar entre distintos JPanel dentro del juego, por ejemplo, una pantalla de inicio, una de juego y una de resultados.
+# 🎯 Objetivo.
+EL objetivo de esta reapertura de proyecto es  corregir los bugs , implementar funcionalidad como la pantalla de muerte y victoria y  a lo mejor pensar en nuevas tecnologias como javafx 
 
-# Tecnologías y IDE que se utilizara durante el desarrollo
+# 🏗️ Estructura de VELKA
 
-1. Java
-2. Libreria Swing Java
-3. Visual Studio Code 
+```
+VELKA/
+├── bin/
+└── src/
+    ├── controlador/
+    │   ├── LoopGame.java
+    │   └── TecladoControlador.java
+    ├── main/
+    │   └── Principal.java
+    ├── modelo/
+    │   ├── Coleccionable.java
+    │   ├── Jugador.java
+    │   ├── Map.java
+    │   ├── Personaje.java
+    │   ├── ReproductoMusica.java
+    │   └── Tile.java
+    ├── recursos/
+    │   ├── MUSICA/
+    │   │   └── MusicaMenu.wav
+    │   ├── SPRITEMAPA/
+    │   │   ├── BLOQUE.png
+    │   │   ├── ESTRELLAS.png
+    │   │   └── [Otros elementos del mapa...]
+    │   └── SPRITESJUGADOR2/
+    │       ├── CORRER/
+    │       ├── DANIO/
+    │       ├── ESCALA/
+    │       ├── IDLE/
+    │       ├── PORTA/
+    │       └── SALTO/
+    └── vista/
+        ├── JframePrincipal.java
+        ├── JLabelControles.java
+        ├── JLabelFinJuego.java
+        ├── JPanel1Juego.java
+        └── JpanelMenu.java
+
+```
+
+# 🎮 Controles 
+El juego cuenta con un **sistema de control dual**, permitiendo alternar de forma cómoda entre la distribución clásica **WASD** o las **Flechas direccionales** según tu preferencia de juego:
+
+| Acción | Opción Principal | Opción Alternativa | Función en el Juego |
+| :--- | :---: | :---: | :--- |
+| **Mover a la izquierda** | `A` | `←` | Desplaza al personaje hacia la izquierda. |
+| **Mover a la derecha** | `D` | `→` | Desplaza al personaje hacia la derecha. |
+| **Mirar arriba / Escalar** | `W` | `↑` | Permite trepar por muros o mirar hacia arriba. |
+| **Agacharse / Descender** | `S` | `↓` | Permite descender de plataformas o agacharse. |
+| **Saltar** | `Espacio` | `Espacio` | Realiza un salto (o impulsos desde paredes). |
+| **Impulso (Dash)** | `K` | `X` / `Shift` | Desplazamiento rápido en el aire. |
+| **Agarrar (Climb)** | `J` | `C` / `Z` | Sujeción en superficies verticales para escalar. |
+
+
+# 🧑‍💻 Tecnologías
+   - Java
+   - Librerias swing
+   - librerias awg
+   - librerias sound
+   -  estructura MVC
+# 🆔 IDE.
+   - Visual Studio Coe
+
+
